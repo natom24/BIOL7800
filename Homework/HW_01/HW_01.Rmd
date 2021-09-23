@@ -1,17 +1,25 @@
 ---
 title: "Homework 1"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
-### Nathaniel Haulk
+# Introduction
 
-```{bash}
+Hello! My name is **Nathaniel Haulk** and I am a first year graduate student in Bret Elderd's Lab. I am from Griffin, Georgia, a small town about an hour below Atlanta, Georgia. For my undergraduate, I went to the University of Georgia and majored in Ecology.
+
+  My research focuses on using machine learning to map out how *Arabidopsis thaliana* coevolves with it's parasites. In my free time, I enjoy playing racquetball, watching TV, and playing guitar. 
+  
+
+## Version of Git:  
+
+```{bash, echo = FALSE}
 git --version
 ```
+## Version of R:  
 
-```{r}
+```{r, echo = FALSE}
 R.version
 ```
 

@@ -3,20 +3,21 @@ title: "Homework 1"
 output:
   html_document: default
   pdf_document: default
+urlcolor: blue
 ---
 
 # Introduction
 
-Hello! My name is **Nathaniel Haulk** and I am a first year graduate student in Bret Elderd's Lab. I am from Griffin, Georgia, a small town about an hour below Atlanta, Georgia. For my undergraduate, I went to the University of Georgia and majored in Ecology.
+Hello! My name is **Nathaniel Haulk** and I am a first year graduate student in Bret Elderd's Lab. I am from Griffin, Georgia, a small town about an hour below Atlanta, Georgia.  My research focuses on using machine learning to map out how *Arabidopsis thaliana* coevolves with its parasites. 
 
-  My research focuses on using machine learning to map out how *Arabidopsis thaliana* coevolves with it's parasites. In my free time, I enjoy playing racquetball, watching TV, and playing guitar. 
+ For my undergraduate, I went to the University of Georgia and majored in Ecology. During this time, I became very interested in diseases and using mathematical models to graph changes in populations of wildlife. While I have coded in the past, I'm excited to take this course to learn more about coding in R as well as learn more about using [git](https://github.com/natom24/BIOL7800). In my free time, I enjoy playing racquetball, watching TV, needlework, and playing guitar. My friends have also recently gotten into bouldering and rock climbing at a local gym. At home, I currently have one dog, an Australian sheppard, named Koda that also consumes alot of my time. 
   
-
 ## Version of Git:  
 
 ```{bash, echo = FALSE}
 git --version
 ```
+  
 ## Version of R:  
 
 ```{r, echo = FALSE}

@@ -1,10 +1,13 @@
+---
+title: "Modeling Trophic Cascades due to Toxic Algal Blooms"
+author: "Nathaniel Haulk"
+output: html_document
+---
 
-# Modeling Trophic Cascades due to Toxic Algal Blooms
-## Nathaniel Haulk
 
 ### Introduction:
 
-Trophic cascades are a phenomenon where a change in the number of predators that lead to large shifts in prey populations. These are often caused by extreme environmental events leading to large die-offs of individuals. Algal blooms, often caused by the addition of pollutants like nitrogen and phosphate, are a major cause of mortality in aquatic communities. These large die-outs often disproportionately affect the predator populations and can actually lead to situations where prey populations benefit more that die-off. However, little work has gone into understanding how different intensities of algal blooms affect wildlife. Using mathematical models, I hope to provide a better understanding of when trophic cascades will occur and how changes in intensity of algal blooms can affect the population sizes of both predators and prey. Few studies have also looked into how multiple linked predator-prey systems can be affected by trophic cascades. 
+Trophic cascades are a phenomenon where a change in the number of predators that lead to large shifts in prey populations. These are often caused by extreme environmental events leading to large die-offs of individuals. Algal blooms, often caused by the addition of pollutants like nitrogen and phosphate, are a major cause of mortality in aquatic communities. these blooms decrease the amount of dissolved oxygen in a system and can lead to massive die off if water is made hypoxic. Some algae species can also release cyanotoxins into the environment that are poisonous to the organisms in the water. These large die-outs often disproportionately affect the predator populations and can actually lead to situations where prey populations benefit from these large die-off. However, little work has gone into understanding how different intensities of algal blooms affect predator-prey relationships. Few studies have also looked into how predator-prey systems with numerous species can be affected by trophic cascades. Using mathematical models, I hope to provide a better understanding of when trophic cascades will occur and how changes in intensity of algal blooms can affect the population sizes of both predators and prey.  
 
 ### Data Collection:
 

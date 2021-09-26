@@ -12,3 +12,11 @@ The majority of the data here will be generated using differential equations to 
 
 
 ### Questions to Answer:
+
+1. How do algal blooms affect systems with one predator species and one prey species?   
+2. How do these blooms affect systems with numerous predator species and numerous prey species?  
+3. How does changing the intensity of algal blooms affect these organisms?  
+4. In what situations do we see positive benefits to prey systems?  
+5. Are there situations where we see positive benefit to predator systems?  
+6. Does the species of algae matter in how organisms will react to the blooms? 
+

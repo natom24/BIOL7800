@@ -1,5 +1,5 @@
 ---
-title: "Modeling Trophic Cascades due to Toxic Algal Blooms"
+title: "Modeling Trophic Cascades caused by Toxic Algal Blooms"
 author: "Nathaniel Haulk"
 output: html_document
 ---
@@ -7,14 +7,14 @@ output: html_document
 
 ### Introduction:
 
-Trophic cascades are a phenomenon where a change in the number of predators that lead to large shifts in prey populations. These changes in population are often caused by extreme environmental events leading to large die-offs or the removal of individuals (Daskalov 2002). Algal blooms, often caused by the addition of pollutants like nitrogen and phosphate, are a major cause of mortality in aquatic communities. these blooms decrease the amount of dissolved oxygen in a system and can lead to massive die off if water is made hypoxic. Some algae species can also release cyanotoxins into the environment that are poisonous to the organisms in the water (White et al, 2005). These large die-outs often disproportionately affect the predator populations and can actually lead to situations where prey populations benefit from these large die-off. However, little work has gone into understanding how different intensities of algal blooms affect predator-prey relationships. Few studies have also looked into how predator-prey systems with numerous species can be affected by trophic cascades. Using mathematical models, I hope to provide a better understanding of when trophic cascades will occur and how changes in intensity of algal blooms can affect the population sizes of both predators and prey.
+Trophic cascades are a phenomenon where a change in the number of predators leads to large shifts in prey populations. These changes in population are often caused by extreme environmental events leading to large die-offs or the removal of individuals (Daskalov 2002). Algal blooms, frequently caused by the addition of pollutants like nitrogen and phosphate, are a major cause of mortality in aquatic communities. These blooms decrease the amount of dissolved oxygen in a system and can lead to massive die off if water is made hypoxic. Some algae species can also release cyanotoxins into the environment that are poisonous to the organisms in the water (White et al, 2005). These large die-outs often disproportionately affect the predator populations and can actually lead to situations where prey populations benefit from these large die-off. However, little work has gone into understanding how different intensities of algal blooms affect predator-prey relationships. In addition, few studies have investigated how predator-prey systems with numerous species can be affected by trophic cascades. Using mathematical models, I hope to provide a better understanding of when trophic cascades will occur and how changes in intensity of algal blooms can affect the population sizes of both predators and prey.
 
 ### Data Collection:
 
 The majority of the data here will be modeled using differential equations to graph changes in population size. Parameters used when calculating changes in populations will either be calculated by hand or pulled from other literature sources that have performed similar experiments. For example, the natural mortality of predator and prey species will be derived from literature on aquatic organisms (Kidd et al, 2007). Parameters such as mortality caused by algal blooms will be calculated using R depending on the strength of the bloom. 
 
 
-### Questions to Answer:
+### Questions:
 
 1. How do algal blooms affect systems with one predator species and one prey species?   
 2. How do these blooms affect systems with numerous predator species and numerous prey species?  
@@ -23,6 +23,11 @@ The majority of the data here will be modeled using differential equations to gr
 5. Are there situations where we see positive benefit to predator systems?  
 6. Does the species of algae matter in how organisms will react to the blooms? 
 
+### Analysis:
+  * Use differential equations to model different strengths of algal blooms.
+  * Use differential equations to model predator prey systems and their relationship to one another, as well as how they are affected by algal blooms.
+  * Using differential equations, compare how more toxic species of algae can lead to changes compared to less toxic species.
+  * Using differential equations, compare more sensitive and less sensitive organisms to see how populations chnage as a result. 
 
 ### Sources:
 

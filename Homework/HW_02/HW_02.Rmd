@@ -13,7 +13,7 @@ output: pdf_document
 
 ## mtcars[-1:3,]  
   
-|      Needs to be a list so it knows not to include 1 to 3
+|      Needs to be a list so it knows not to include rows 1 to 3
 |      **mtcars[-c(1:3),]**
   
 ## mtcars[mtcars$cyl = 8, ]  
@@ -35,7 +35,10 @@ x[NA]
 
 # Question 3
 
-mtcars[1:15] vs mtcars[1:15, ]
+##mtcars[1:15] vs mtcars[1:15, ]
+
+mtcars[1:15] doesn't work because you are not specifying what rows or columns to pull from. mtcars[1:15, ] works because you are denoting you want the first 15 rows to be printed out with all of the columns associated with those rows.
+
 
 # Question 4
 
@@ -71,7 +74,9 @@ for(i in 1:nrow(mtcars)){
   }# Closes else loop
 }# Closes for loop
 
-print(mtcars)
+
+## Used to print out mtcars so mpg and mpg_2 are columns next to each other.
+print(mtcars[c(1,12,2:11)])
 
 ```
 

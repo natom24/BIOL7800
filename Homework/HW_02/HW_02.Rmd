@@ -33,17 +33,21 @@ output: pdf_document
 x = 1:5  
 x[NA]  
 
+
+
 # Question 3
 
-##mtcars[1:15] vs mtcars[1:15, ]
+## mtcars[1:15] vs mtcars[1:15, ]
 
-mtcars[1:15] doesn't work because you are not specifying what rows or columns to pull from. mtcars[1:15, ] works because you are denoting you want the first 15 rows to be printed out with all of the columns associated with those rows.
+mtcars[1:15] doesn't work because you are not specifying what rows or columns to pull from. mtcars[1:15,] works because you are denoting you want the first 15 rows to be printed out with all of the columns associated with those rows.
 
 
 # Question 4
 
-x = matrix(c(1:3, NA, 5:7, NA, NA), nrow = 3)  
-x[is.na(x)] = 0  
+## Line 1: x = matrix(c(1:3, NA, 5:7, NA, NA), nrow = 3)  
+## Line 2: x[is.na(x)] = 0  
+
+Line 1 Makes a 3 by 3 matrix (x) with values 1, 2, 3, NA, 5, 6, 7, NA, NA. This means that x[1,2], x[2,3], and x[3,3] all contain NA. Line 2 is used to set all NAs in the matrix into 0. "is.na(x)" detects any NA values and sets them as true. All of the integers are considered false. "x[is.na(x)]" pulls any value marked as true. By setting "x[is.na(x)]" to, any value that is NA is now set to 0.
 
 # Question 5
 ```{r Question5, echo = TRUE}

@@ -1,7 +1,7 @@
 ---
 title: 'Homework #2'
 author: "Nathaniel Haulk"
-date: "9/30/2021"
+date: "10/07/2021"
 output: pdf_document
 ---
 
@@ -13,8 +13,8 @@ output: pdf_document
 
 ## mtcars[-1:3,]  
   
-|      The -1 row doesn't exist, instead you would need to remove the negative:  
-|      **mtcars[1:3,]**
+|      Needs to be a list so it knows not to include 1 to 3
+|      **mtcars[-c(1:3),]**
   
 ## mtcars[mtcars$cyl = 8, ]  
 

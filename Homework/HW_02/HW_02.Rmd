@@ -34,7 +34,7 @@ output: pdf_document
 ### x = 1:5  
 ### x[NA]  
 
-Indexing by NA returns NA 5 times. Since you are indexing by an unknown element, you are instructing R to retrieve an element it can not recognize, causing it to print NA.
+Logical vectors like the one above tend to reuse the indices for each value, meaning that five values will be outputted instead of just one. When you index by NA, R recycles this value assigning it to all five of the values in X.
 
 
 

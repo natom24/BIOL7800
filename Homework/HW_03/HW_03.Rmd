@@ -7,6 +7,50 @@ output: pdf_document
 
 # Question 1
 
+```{r}
+set.seed(12) # to be reproducible
+
+## Creates a 50 x 10 matrix with the values 1-500
+A = matrix(data = 1:500, nrow = 50, ncol = 10)
+
+## Adds column names with lake and a number separated with a "_"
+colnames(A) = paste("lake", 1:10, sep = "_")
+
+
+#########################################
+## Calculating Average using for loop
+#########################################
+
+
+## Creates a matrix to record means in
+AloopMeans = matrix(data = 0, nrow = 1, ncol = 10)
+
+## Adds column names with lake and a number separated with a "_"
+colnames(A) = paste("lake", 1:10, sep = "_")
+
+## for loop to run through each column and calculate the mean.
+for(i in 1:ncol(A)){
+  
+  ## 
+  AloopMeans[i] = sum(A[,i])/NROW(A[,i])
+}
+
+## Print means generated using the for loop
+print(AloopMeans)
+
+####################################
+## Using colMeans 
+####################################
+
+## Records Average from colMeans
+AcolMeans = colMeans(A)
+
+## Prints Averages
+print(AcolMeans)
+
+```
+
+
 
 ## Using For Loops:
 
@@ -36,6 +80,17 @@ for (i in 3:fib.length){
 
 ## Prints out the first 30 terms of the Fibonacci Sequence. 
 print(Fib.seq)
+
+```
+
+#Question 4
+```{r}
+## Lists the top 105 songs from the radio station KITS San Francisco on Jan 1, 1992.
+top105 = readLines("http://www.textfiles.com/music/ktop100.txt")
+
+## Removes missing no. 54 and 55
+top105 = top105[-c(64, 65)]
+
 
 ```
 

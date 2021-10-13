@@ -55,24 +55,38 @@ print(AcolMeans)
 
 
 ```{r Q2, echo = TRUE}
-
+## Creates a 3x3x3 array with the values 1 to 27
 x = array(1:27, dim = c(3, 3, 3))
 
-## Used to record each number as character
+## Empty 3x3 array used to record the list of numbers
+x.ap = array(,dim = c(3,3))
 
-
-x.ap = NULL
-
+## For loop to run through the first dimension of x
 for(i in 1:dim(x)[1]){
+  
+  ## For loop for the second dimension of x
   for(q in 1:dim(x)[2]){
+    
+    ## Resets values in x.char
     x.char = NULL
+    
+    #For loop for the third dimension of x
     for(u in 1:dim(x)[3]){
+      
+      ## Records the numbers at position i,q as three characters
       x.char = cbind(x.char,as.character(x[i,q,u]))
     }
-   # x.ap[i,q] = 
+    
+   ## Combines the list of numbers generated in the for loop above into one string seperated by a comma
+   x.ap.list = paste(unlist(x.char), collapse =", ")
+   
+   ## Record string of numbers into array
+   x.ap[i,q] <- x.ap.list
   }
 }
 
+## Prints array
+print(x.ap)
 ```
 
 # Question 3

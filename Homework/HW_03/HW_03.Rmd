@@ -7,7 +7,7 @@ output: pdf_document
 
 # Question 1
 
-```{r}
+```{r Q1, echo = TRUE}
 set.seed(12) # to be reproducible
 
 ## Creates a 50 x 10 matrix with the values 1-500
@@ -54,7 +54,7 @@ print(AcolMeans)
 # Question 2
 
 
-```{r}
+```{r Q2, echo = TRUE}
 
 x = array(1:27, dim = c(3, 3, 3))
 
@@ -77,7 +77,7 @@ for(i in 1:dim(x)[1]){
 
 # Question 3
 
-```{r}
+```{r Q3, echo = TRUE}
 
 ## How many numbers of the Fibonacci Sequence you want to generate.
 fib.length = 30
@@ -100,7 +100,7 @@ print(Fib.seq)
 ```
 
 # Question 4
-```{r}
+```{r Q4, echo = TRUE}
 ## Lists the top 105 songs from the radio station KITS San Francisco on Jan 1, 1992.
 top105 = readLines("http://www.textfiles.com/music/ktop100.txt")
 
@@ -115,3 +115,31 @@ print(z)
 ```
 
 # Question 5
+
+
+
+```{r Q5, echo = TRUE}
+
+## Removes the period from each number
+A = sub("\\D", "",  z)
+
+## Converts the strings to numbers
+A = as.numeric(A)
+
+## creates a list that defines any repeated value as True
+dup.data = duplicated(A)
+
+## How many ties are present:
+print(sum(dup.data))
+
+## for loop to test for repeats and print out what position the tie occurred at.
+for(i in 1:length(dup.data)){
+  
+  ## Tests for any repeated values 
+  if(dup.data[i] == TRUE)
+    print(A[i]) # Print out repeated positions
+  
+} # Closes for loop
+```
+
+`

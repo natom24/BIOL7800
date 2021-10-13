@@ -11,7 +11,7 @@ output: pdf_document
 set.seed(12) # to be reproducible
 
 ## Creates a 50 x 10 matrix with the values 1-500
-A = matrix(data = 1:500, nrow = 50, ncol = 10)
+A = matrix(data = runif(n = 1:500), nrow = 50, ncol = 10)
 
 ## Adds column names with lake and a number separated with a "_"
 colnames(A) = paste("lake", 1:10, sep = "_")
@@ -45,13 +45,35 @@ print(AloopMeans)
 ## Records Average from colMeans
 AcolMeans = colMeans(A)
 
-## Prints Averages
+## Prints Averages from colMeans
 print(AcolMeans)
 
 ```
 
 
 # Question 2
+
+
+```{r}
+
+x = array(1:27, dim = c(3, 3, 3))
+
+## Used to record each number as character
+
+
+x.ap = NULL
+
+for(i in 1:dim(x)[1]){
+  for(q in 1:dim(x)[2]){
+    x.char = NULL
+    for(u in 1:dim(x)[3]){
+      x.char = cbind(x.char,as.character(x[i,q,u]))
+    }
+   # x.ap[i,q] = 
+  }
+}
+
+```
 
 # Question 3
 
@@ -77,7 +99,7 @@ print(Fib.seq)
 
 ```
 
-#Question 4
+# Question 4
 ```{r}
 ## Lists the top 105 songs from the radio station KITS San Francisco on Jan 1, 1992.
 top105 = readLines("http://www.textfiles.com/music/ktop100.txt")
@@ -85,6 +107,11 @@ top105 = readLines("http://www.textfiles.com/music/ktop100.txt")
 ## Removes missing no. 54 and 55
 top105 = top105[-c(64, 65)]
 
+y = grep("^[0-9]+([.][0-9])?", top105, value = T)
 
+z = gsub(" .*$", "",  y)
+
+print(z)
 ```
 
+# Question 5

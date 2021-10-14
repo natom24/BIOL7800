@@ -121,10 +121,11 @@ top105 = readLines("http://www.textfiles.com/music/ktop100.txt")
 ## Removes missing no. 54 and 55
 top105 = top105[-c(64, 65)]
 
+## Used to filter strings so they just contain the ranking  number preceded by a dot.
 y = grep("^[0-9]+([.][0-9])?", top105, value = T)
-
 z = gsub(" .*$", "",  y)
 
+#Prints the ranking number
 print(z)
 ```
 

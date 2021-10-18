@@ -122,7 +122,7 @@ top105 = readLines("http://www.textfiles.com/music/ktop100.txt")
 top105 = top105[-c(64, 65)]
 
 ## Used to filter strings so they just contain the ranking  number preceded by a dot.
-y = grep("^[0-9]+([.][0-9])?", top105, value = T)
+y = grep("^[0-9]+(\\.[0-9])?", top105, value = T)
 z = gsub(" .*$", "",  y)
 
 #Prints the ranking number
@@ -135,8 +135,9 @@ print(z)
 
 ```{r Q5, echo = TRUE}
 
-## Removes the period from each number
-A = sub("\\D", "",  z)
+## Removes the period from each number unless it is used as a decimal (105.3)
+A = sub("\\.$","",z)
+
 
 ## Converts the strings to numbers
 A = as.numeric(A)

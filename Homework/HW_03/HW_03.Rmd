@@ -135,15 +135,17 @@ print(z)
 
 ```{r Q5, echo = TRUE}
 
+## Make sure to run the previous chunk before this one.
+
 ## Removes the period from each number unless it is used as a decimal (105.3)
-A = sub("\\.$","",z)
+rank.num = sub("\\.$","",z)
 
 
 ## Converts the strings to numbers
-A = as.numeric(A)
+rank.num = as.numeric(rank.num)
 
 ## creates a list that defines any repeated value as True
-dup.data = duplicated(A)
+dup.data = duplicated(rank.num)
 
 ## How many ties are present:
 print(sum(dup.data))
@@ -153,7 +155,7 @@ for(i in 1:length(dup.data)){
   
   ## Tests for any repeated values 
   if(dup.data[i] == TRUE)
-    print(A[i]) # Print out repeated positions
+    print(rank.num[i]) # Print out repeated positions
   
 } # Closes for loop
 ```

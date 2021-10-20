@@ -5,8 +5,9 @@ date: "10/28/2021"
 output: pdf_document
 ---
 
-```{r packages, echo = TRUE}
-library(rvest)
+```{r packages, echo = FALSE}
+library('tidyverse')
+library('rvest')
 ```
 
 # Question 1
@@ -15,5 +16,30 @@ library(rvest)
 
 sched = read_html("https://introdatasci.dlilab.com/schedule_materials")
 
+sched = sched %>% 
+  html_elements("table") %>%
+  html_table()
+
+sched= as.data.frame(sched)
+
+```
+# Question 2
+
+```{r Q2, echo = TRUE}
+
+sched$Month = gsub("\\d","",sched[,1])
+
+sched$Day = gsub("\\D","",sched[,1])
+
+
+print(sched[c(6,7,2)])
+
 ```
 
+# Question 3
+
+```{r Q3, echo = TRUE}
+
+
+
+```

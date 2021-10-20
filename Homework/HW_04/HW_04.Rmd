@@ -1,0 +1,19 @@
+---
+title: "Homework 4"
+author: "Nathaniel Haulk"
+date: "10/28/2021"
+output: pdf_document
+---
+
+```{r packages, echo = TRUE}
+library(rvest)
+```
+
+# Question 1
+
+```{r Q1, echo = TRUE}
+
+sched = read_html("https://introdatasci.dlilab.com/schedule_materials")
+
+```
+

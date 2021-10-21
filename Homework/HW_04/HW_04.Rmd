@@ -5,7 +5,7 @@ date: "10/28/2021"
 output: pdf_document
 ---
 
-```{r packages, echo = FALSE}
+```{r packages, echo = FALSE, message = FALSE, warning = FALSE}
 library('tidyverse')
 library('rvest')
 ```
@@ -31,7 +31,7 @@ sched$Month = gsub("\\d","",sched[,1])
 
 sched$Day = gsub("\\D","",sched[,1])
 
-
+## Prints out schedule in a more readable dataframe containing just the month, day, and topic.
 print(sched[c(6,7,2)])
 
 ```
@@ -40,6 +40,32 @@ print(sched[c(6,7,2)])
 
 ```{r Q3, echo = TRUE}
 
+lec.num = sched %>%
+  group_by(Month) %>%
+  summarise(num = n())
+
+lec.num = lec.num[order(lec.num$num, decreasing = TRUE),]
+
+print(lec.num)
+
+```
+
+# Question 4
+
+```{r}
+
+words = unlist(stringr::str_split(sched$Topic," "))
+
+words = tolower(sub("[[:punct:]]","",words))
+
+
+t.words = table(words)
+
+t.words = sort(t.words, decreasing = TRUE)
+
+top5 = as.data.frame(t.words[1:5])
+
 
 
 ```
+

@@ -14,21 +14,26 @@ library('rvest')
 
 ```{r Q1, echo = TRUE}
 
+## Pulls html data from the schedule and materials page of the course website
 sched = read_html("https://introdatasci.dlilab.com/schedule_materials")
 
+
+## Pulls the schedule data as a table
 sched = sched %>% 
   html_elements("table") %>%
   html_table()
 
+## Converts to a data frame for better readability
 sched= as.data.frame(sched)
-
 ```
 # Question 2
 
 ```{r Q2, echo = TRUE}
 
+## Removes the day from the date leaving the month
 sched$Month = gsub("\\d","",sched[,1])
 
+##  Removes the month from the date leaving the day
 sched$Day = gsub("\\D","",sched[,1])
 
 ## Prints out schedule in a more readable dataframe containing just the month, day, and topic.
@@ -39,13 +44,15 @@ print(sched[c(6,7,2)])
 # Question 3
 
 ```{r Q3, echo = TRUE}
-
+## Counts how many times each month appears
 lec.num = sched %>%
   group_by(Month) %>%
   summarise(num = n())
 
+## Sorts the months in decreasing order
 lec.num = lec.num[order(lec.num$num, decreasing = TRUE),]
 
+## Prints out how many times each month appears
 print(lec.num)
 
 ```
@@ -53,19 +60,23 @@ print(lec.num)
 # Question 4
 
 ```{r}
+## Creates a list of all the words
+Words = unlist(stringr::str_split(sched$Topic," "))
 
-words = unlist(stringr::str_split(sched$Topic," "))
+## removes any punctuation and lowercase letters in the words. 
+Words = tolower(sub("[[:punct:]]","",Words))
 
-words = tolower(sub("[[:punct:]]","",words))
+## Counts the number of times each word appears
+t.words = table(Words)
 
-
-t.words = table(words)
-
+## sorts the number of times each word appears in decreasing order
 t.words = sort(t.words, decreasing = TRUE)
 
+## Puts the first 5 words and their frequency into a list
 top5 = as.data.frame(t.words[1:5])
 
-
+## Prints the top 5 results
+print(top5)
 
 ```
 

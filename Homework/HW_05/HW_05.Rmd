@@ -1,0 +1,31 @@
+---
+title: "Homework 5"
+author: "Nathaniel Haulk"
+date: "10/28/2021"
+output: pdf_document
+---
+
+```{r}
+#devtools::install_github("daijiang/neonDivData")
+
+library("neonDivData")
+```
+
+```{r}
+
+#sort(unique(data_plant$taxon_name))
+
+## Pulls the genus for each plant
+data_plant$genus = sub(" .*", "", data_plant$taxon_name)
+
+## Selects a random number 100 times between 1 and the length of data_plant
+i = sample(1:nrow(data_plant), 100, replace=FALSE)
+
+## Records the genus at the random 
+genus_samp = data_plant$genus[i]
+
+## Prints out 100 genus 
+print(genus_samp)
+
+```
+

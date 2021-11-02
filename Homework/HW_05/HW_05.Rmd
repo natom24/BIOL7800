@@ -5,10 +5,10 @@ date: "10/28/2021"
 output: pdf_document
 ---
 
-```{r}
+```{r packages, echo = TRUE, message = FALSE, warning = FALSE}
 library("devtools")
 
-devtools::install_github("daijiang/neonDivData")
+#devtools::install_github("daijiang/neonDivData")
 
 library("neonDivData")
 
@@ -54,7 +54,21 @@ print(taxon2_samp)
 
 ```{r}
 
-data_plant$sample_area_m2 == "1"
+n_1 = data_plant %>%
+  group_by(siteID) %>%
+  summarise(richness_1m2 = sum(sample_area_m2 == "1"))
 
+n_10 = data_plant %>%
+  group_by(siteID) %>%
+  summarise(richness_10m2 = sum(sample_area_m2 == "1" | sample_area_m2 == "10"))
+
+n_100 = data_plant %>%
+  group_by(siteID) %>%
+  summarise(richness_100m2 = sum(sample_area_m2 == "1" | sample_area_m2 == "10"| sample_area_m2 == "100"))
+
+n_all = left_join(n_1 ,n_10) %>%
+  left_join(n_100)
+
+print(n_all)
 ```
 

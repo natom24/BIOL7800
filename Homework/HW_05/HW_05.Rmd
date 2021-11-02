@@ -93,6 +93,11 @@ print(n_all_longer)
 # Question 5
 ```{r}
 
+## Graphs n_all_longer
+ggplot(data = n_all_longer, aes(x = spatial_scale, y = richness,  group = siteID))+
+  geom_point()+
+  geom_line()
+
 ```
 
 

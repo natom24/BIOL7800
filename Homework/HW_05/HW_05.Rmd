@@ -6,12 +6,17 @@ output: pdf_document
 ---
 
 ```{r}
-#devtools::install_github("daijiang/neonDivData")
+library("devtools")
+
+devtools::install_github("daijiang/neonDivData")
 
 library("neonDivData")
-```
 
-```{r}
+library("dplyr")
+```
+# Question 1:
+
+```{r Q1, echo = TRUE}
 
 #sort(unique(data_plant$taxon_name))
 
@@ -26,6 +31,30 @@ genus_samp = data_plant$genus[i]
 
 ## Prints out 100 genus 
 print(genus_samp)
+
+```
+
+# Question 2:
+
+```{r Q2, echo = TRUE}
+
+data_plant$taxon_name2 = sub("(\\w\\s\\w+).*", "\\1", data_plant$taxon_name)
+
+## Selects a random number 100 times between 1 and the length of data_plant
+i = sample(1:nrow(data_plant), 100, replace=FALSE)
+
+## Records the genus and species name at the random 
+taxon2_samp = data_plant$taxon_name2[i]
+
+print(taxon2_samp)
+
+```
+
+# Question 3
+
+```{r}
+
+data_plant$sample_area_m2 == "1"
 
 ```
 

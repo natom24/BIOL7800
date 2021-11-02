@@ -12,7 +12,7 @@ library("devtools")
 
 library("neonDivData")
 
-library("dplyr")
+library("tidyverse")
 ```
 # Question 1:
 
@@ -46,6 +46,7 @@ i = sample(1:nrow(data_plant), 100, replace=FALSE)
 ## Records the genus and species name at the random 
 taxon2_samp = data_plant$taxon_name2[i]
 
+## Prints out data
 print(taxon2_samp)
 
 ```
@@ -54,21 +55,44 @@ print(taxon2_samp)
 
 ```{r}
 
+## Creates data frame n_1 that counts the number of sample_areas with a size of 1 m2 in data_plant
 n_1 = data_plant %>%
   group_by(siteID) %>%
   summarise(richness_1m2 = sum(sample_area_m2 == "1"))
 
+## Creates data frame n_10 that counts the number of sample_areas with a size of 1 and 10 m2 in data_plant
 n_10 = data_plant %>%
   group_by(siteID) %>%
   summarise(richness_10m2 = sum(sample_area_m2 == "1" | sample_area_m2 == "10"))
 
+## Creates data frame n_100 that counts the number of sample_areas with a size of 1, 10, and 100 m2 in data_plant
 n_100 = data_plant %>%
   group_by(siteID) %>%
   summarise(richness_100m2 = sum(sample_area_m2 == "1" | sample_area_m2 == "10"| sample_area_m2 == "100"))
 
+## Joins n_1, n_10, n_100
 n_all = left_join(n_1 ,n_10) %>%
   left_join(n_100)
 
+## prints n_all
 print(n_all)
 ```
+
+# Question 4
+
+```{r}
+
+## creates n_all_longer that records site richness based off spatial scale.
+n_all_longer = n_all %>%
+  pivot_longer(!siteID, names_to = "spatial_scale", values_to = "richness")
+
+## Prints dataframe
+print(n_all_longer)
+```
+
+# Question 5
+```{r}
+
+```
+
 

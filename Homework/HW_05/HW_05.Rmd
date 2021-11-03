@@ -18,8 +18,6 @@ library("tidyverse")
 
 ```{r Q1, echo = TRUE}
 
-#sort(unique(data_plant$taxon_name))
-
 ## Pulls the genus for each plant
 data_plant$genus = sub(" .*", "", data_plant$taxon_name)
 

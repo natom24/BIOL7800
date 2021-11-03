@@ -1,0 +1,9 @@
+---
+title: "Proposal_New"
+author: "Nathaniel Haulk"
+date: "11/2/2021"
+output: pdf_document
+---
+
+# Comparing Covid-19 in Rural vs Urban Areas
+

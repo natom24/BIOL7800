@@ -8,7 +8,7 @@ output: pdf_document
 ```{r packages, echo = TRUE, message = FALSE, warning = FALSE}
 library("devtools")
 
-#devtools::install_github("daijiang/neonDivData")
+if(!require(neonDivData)) devtools::install_github("daijiang/neonDivData")
 
 library("neonDivData")
 
@@ -63,12 +63,12 @@ n_1 = data_plant %>%
 ## Creates data frame n_10 that counts the number of sample_areas with a size of 1 and 10 m2 in data_plant
 n_10 = data_plant %>%
   group_by(siteID) %>%
-  summarise(richness_10m2 = sum(sample_area_m2 == "1" | sample_area_m2 == "10"))
+  summarise(richness_10m2 = sum(sample_area_m2 %in% c("1","10")))
 
 ## Creates data frame n_100 that counts the number of sample_areas with a size of 1, 10, and 100 m2 in data_plant
 n_100 = data_plant %>%
   group_by(siteID) %>%
-  summarise(richness_100m2 = sum(sample_area_m2 == "1" | sample_area_m2 == "10"| sample_area_m2 == "100"))
+  summarise(richness_100m2 = sum(sample_area_m2 %in% c("1","10","100")))
 
 ## Joins n_1, n_10, n_100
 n_all = left_join(n_1 ,n_10) %>%

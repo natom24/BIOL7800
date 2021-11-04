@@ -7,3 +7,41 @@ output: pdf_document
 
 # Comparing Covid-19 in Rural vs Urban Areas
 
+## Nathaniel Haulk
+
+# Introduction:
+Covid-19 is a pathogen that transmits through aerosol particles produced by infected individuals. This means that areas of high-density are much more likely to have high rates of infection than areas with low-densities. Mask usage and vaccination have also been proven to cut down on Covid rates. However, many high-density areas have a higher probability of taking preventative measures than more low-density,rural areas, meaning that rural areas may now show a higher percentage of sick individuals than more crowded areas. While some studies have looked into Covid-19 rates, many are outdated and published before the vaccine was made widely available. This study would seek to examine covid rates post vaccination as well as provide a more up to date comparison of the number of cases in rural vs urban areas. 
+
+# Data Source: 
+
+Data required would be covid rates as well as covid rates per county. Population data per county would also be required to compare population densities. Finally, a study In January of 2021 predicted the infection rate of each county (Ives and Bozzuto). 
+
+Actual population data per county as well as population density would be taken from https://www.census.gov/data/datasets/time-series/demo/popest/2010s-counties-total.html
+  
+Covid rates would be taken from the recorded nytimes data: https://github.com/nytimes/covid-19-data
+  
+R0 data for comparisons would be taken from Ives and Bozzuto (2021): See reference below
+
+# Questions:
+
+What is the Covid-19 infection rate per county?
+  
+What is the Covid-19 mortality rate per county?
+
+Do urban areas have higher covid rates than rural areas? 
+  
+Do predicted R0 values for each county we have today correctly match the covid rates we see today?
+
+# Analysis:
+  
+* Pull covid-19 infection and mortality rates from the New York Times data and graph per county
+
+* Calculate Covid-19 rates based on population density to compare between rural and urban values
+  
+* Compare the difference in Covid-19 rates based on vaccination rates and mask rates
+
+* Use R0 data from old study to estimate new rates based off current predictions
+
+# Sources:
+
+Ives, A.R., Bozzuto, C. Estimating and explaining the spread of COVID-19 at the county level in the USA. Commun Biol 4, 60 (2021). https://doi.org/10.1038/s42003-020-01609-6

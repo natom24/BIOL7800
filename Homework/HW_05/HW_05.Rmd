@@ -53,19 +53,19 @@ print(taxon2_samp)
 
 ```{r}
 
-## Creates data frame n_1 that counts the number of sample_areas with a size of 1 m2 in data_plant
+## Creates data frame n_1 that counts the number of unique species at each sample_area with a size of 1 m2 in data_plant
 n_1 = data_plant %>%
   group_by(siteID) %>%
   filter(sample_area_m2 =="1") %>%
   summarise(richness_1m2 = n_distinct(taxon_name2))
 
-## Creates data frame n_10 that counts the number of sample_areas with a size of 1 and 10 m2 in data_plant
+## Creates data frame n_10 that counts the number of unique species at each sample_areas with a size of 1 and 10 m2 in data_plant
 n_10 = data_plant %>%
   group_by(siteID) %>%
   filter(sample_area_m2 %in% c("1","10")) %>%
   summarise(richness_10m2 = n_distinct(taxon_name2))
 
-## Creates data frame n_100 that counts the number of sample_areas with a size of 1, 10, and 100 m2 in data_plant
+## Creates data frame n_100 that counts the number of unique species at each sample_areas with a size of 1, 10, and 100 m2 in data_plant
 n_100 = data_plant %>%
   group_by(siteID) %>%
   filter(sample_area_m2 %in% c("1","10","100")) %>%

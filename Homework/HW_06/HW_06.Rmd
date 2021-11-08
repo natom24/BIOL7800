@@ -1,0 +1,16 @@
+---
+title: "Homework 6"
+author: "Nathaniel Haulk"
+date: "11/8/2021"
+output: pdf_document
+---
+# Question 1
+
+## Part A
+```{r}
+
+x = c(110.5, 105.4, 118.1, 104.5, 93.6, 84.1, 77.8, 75.6)
+y = c(5.755, 5.939, 6.010, 6.545, 6.730, 6.750, 6.899, 7.862)
+
+```
+

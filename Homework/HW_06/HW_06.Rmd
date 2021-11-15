@@ -6,13 +6,13 @@ output: pdf_document
 ---
 # Question 1
 
-## Part a
+## Part A
 ```{r 1A}
 ## Data from the website
 x = c(110.5, 105.4, 118.1, 104.5, 93.6, 84.1, 77.8, 75.6)
 y = c(5.755, 5.939, 6.010, 6.545, 6.730, 6.750, 6.899, 7.862)
 
-## binds x and y into a dataframe
+## Binds x and y into a dataframe
 d = data.frame(c(x,y))
 
 ## Creates variable fit_d that shows the slope and the y-intercept
@@ -29,7 +29,7 @@ anovad = anova(fit_d)
 
 print(anovad)
 
-## used to get the t-test p-value
+## Used to get the t-test p-value
 summaryd = summary(fit_d)
 
 print(summaryd)
@@ -56,15 +56,15 @@ We know that $\beta_0 = 10.1375$, $s.e.(\beta_0) = .8423$ and that $t_{n-2,a/2} 
 Plugging in these values gives us:
 
 $$10.1375 \pm -2.4469 * .8423$$
-which equals both 8.077 ad 12.199.
+which equals both 8.077 and 12.199.
 
 ## Part D
 
 ```{r Q1D}
 ## Calculates raw residuals
-residd= resid(fit_d)
+resid_d= resid(fit_d)
 
-print(residd)
+print(resid_d)
 
 ```
 

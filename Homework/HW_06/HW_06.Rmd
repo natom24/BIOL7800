@@ -44,7 +44,7 @@ Both the F-test and the T-test show a P-value <. 01 confirming the alternative h
 print(qt(.05/2, 8-2))
 
 ## Calculate the confidence intervals
-confint(fit_d)
+conf_d = confint(fit_d)
 
 ```
 ## Part D
@@ -113,9 +113,35 @@ y2 = c(-2.08, -0.72, 0.28, 0.92, 1.20, 1.12, 0.68, -0.12, -1.28)
 d2 = data.frame(x2,y2)
 
 ## Plots data
-ggplot(d2, aes(x = x2, y = y2)) +
-  geom_point()
+plot(x2,y2)
 ```
 
 ## Part B
+```{r}
+## Creates variable fit_d2 that shows the stats data from x2 and y2
+fit_d2 = lm(y2~x2, data = d2)
 
+summary_d2 = summary(fit_d2)
+
+## Adds a residual column to d2
+d2 = cbind(d2,summary_d2['residuals'])
+
+plot(y2, d2[,3], ylab = 'residuals')
+```
+
+## Part C
+```{r}
+plot(x2, d2[,3], ylab = 'Residuals')
+```
+
+
+```{r}
+
+yhat = predict(fit_d2, newdata = data.frame(x = x2))
+
+plot(yhat, d2[,3], ylab = 'Residuals')
+```
+
+C and D show very similar graphs. This is because the patter will stay the same regardless if the residuals are being compared to the x-values or to the fitted values.
+
+When comparing B vs D, d gives a better indication of the fact that there is no fit. B makes it seem as if there is a linear relation between the points, when there is obviously not. D shows that there is no obvious linear relationship, mocking a similar pattern to when the x-values are plotted against the y-values

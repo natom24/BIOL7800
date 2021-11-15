@@ -61,4 +61,14 @@ Based off the values from part a, we know the y-intercept and the slope of the r
 
 $$ \hat{y} = 10.137 - 0.0372x$$
 
+## Part E
+
+```{r}
+
+##Print the error values
+print(summaryd[6])
+
+```
+
+Based off the summary statistics generated in part b, we know that $\hat{\sigma}^2 = .3624$
 

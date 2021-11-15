@@ -39,8 +39,26 @@ Both the F-test and the T-test show a P-value <. 01 confirming the alternative h
 
 
 ```{r Q1C}
+## Calculates the t_(n-2,a/2) value
+print(qt(.05/2, 8-2))
 
+## Calculate the confidence intervals
 confint(fit_d)
 
 ```
+## Part D
+
+```{r}
+## Calculates raw residuals
+residd= resid(fit_d)
+
+print(residd)
+
+```
+
+
+Based off the values from part a, we know the y-intercept and the slope of the regression line. This give us the equation:
+
+$$ \hat{y} = 10.137 - 0.0372x$$
+
 

@@ -44,9 +44,20 @@ Both the F-test and the T-test show a P-value <. 01 confirming the alternative h
 print(qt(.05/2, 8-2))
 
 ## Calculate the confidence intervals
-conf_d = confint(fit_d)
+conf_d = confint(fit_d,)
 
 ```
+The 95% confidence interval states that To calculate the 95% confidence interval for $\beta_0$, we use the equation:
+
+$$\beta_0 \pm t_{n-2,a/2} * s.e.(\beta_0)$$
+
+We know that $\beta_0 = 10.1375$, $s.e.(\beta_0) = .8423$ and that $t_{n-2,a/2} = -2.4469$ based on the R code above.
+
+Plugging in these values gives us:
+
+$$10.1375 \pm -2.4469 * .8423$$
+which equals both 8.077 ad 12.199.
+
 ## Part D
 
 ```{r Q1D}
@@ -104,12 +115,11 @@ The R-squared value represents how much variance that can be explained by the in
 
 ## Part A
 ```{r}
-library(tidyverse, warn.conflicts = FALSE)
 ## Data for question 2
 x2 = c(1, 2, 3, 4, 5, 6, 7, 8, 9)
 y2 = c(-2.08, -0.72, 0.28, 0.92, 1.20, 1.12, 0.68, -0.12, -1.28)
 
-# Combines data into datafram
+# Combines data into dataframe
 d2 = data.frame(x2,y2)
 
 ## Plots data

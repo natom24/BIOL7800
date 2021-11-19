@@ -1,6 +1,5 @@
 library("stringr")
 library("tidyverse")
-library("usmap")
 #devtools::install_github("UrbanInstitute/urbnmapr")
 library("urbnmapr")
 
@@ -15,28 +14,24 @@ County_data = read.csv("Final_Project/Downloaded_Data/co-est2020.csv")
   County_data$fips = str_c(County_data$STATE, "", County_data$COUNTY) # Crates fips labels to compare to covid dataset
   County_data = County_data[c(22,6,7,21)] # Rearranges data into more readable format
 
-Combined.data = NULL
+## Merges nytimes Covid Data with census data based on fips number
+Combined.data = merge(x = Covid_data, County_data, by = "fips")
 
-## for loop to run through all county fips numbers
-for(i in seq(1:nrow(County_data))){
-  fips.num = County_data[i,1] #Records the fips number
-  
-  ## runs through all covid data fips numbers to compare to county data
-  for(j in seq(1:nrow(Covid_data))){
-    ## Tests to see if the fips numbers for both data frames are the same
-    if(fips.num == Covid_data[j,4]){
-      
-      Combined.data = rbind(Combined.data, cbind(County_data[i,],Covid_data[j,]))
-      break
-    }
-  }
-}
+## Removes repeated columns
+Combined.data = Combined.data[,-c(11,12)]
 
-Combined.data = Combined.data[,-c(5:8)]
+## Calls the counties data set from urbnmapr
+data(counties)
 
-test = Combined.data[c(1,4)]
+## Renames the fips column to "fips"
+counties = rename(counties, fips = county_fips)
 
-ggplot() + 
-  geom_polygon(data = urbnmapr::states, mapping = aes(x = long, y = lat, group = group),
-               fill = "grey", color = "white") +
-  coord_map(projection = "albers", lat0 = 39, lat1 = 45)
+counties$fips <- sub("^0+", "", counties$fips)
+
+Combined.data = merge(x = counties, Combined.data, by = "fips")
+
+Combined.data %>%
+  ggplot(aes(long, lat, group = group, fill = deaths)) +
+  geom_polygon(color = NA) +
+  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
+  labs(fill = "Median Household Income")

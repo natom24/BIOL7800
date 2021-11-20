@@ -1,7 +1,8 @@
 library("stringr")
 library("tidyverse")
 #devtools::install_github("UrbanInstitute/urbnmapr")
-library("urbnmapr")
+library("socviz")
+library("ggthemes")
 
 ## Imports Data from The New York Times, based on reports from state and local health agencies.
 Covid_data = read.csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv")
@@ -21,17 +22,18 @@ Combined.data = merge(x = Covid_data, County_data, by = "fips")
 Combined.data = Combined.data[,-c(11,12)]
 
 ## Calls the counties data set from urbnmapr
-data(counties)
+data(county_map)
 
 ## Renames the fips column to "fips"
-counties = rename(counties, fips = county_fips)
+county_map = rename(county_map, fips = id)
 
-counties$fips <- sub("^0+", "", counties$fips)
+county_map$fips <- sub("^0+", "", county_map$fips)
 
-Combined.data = merge(x = counties, Combined.data, by = "fips")
+Combined.data = merge(x = county_map, Combined.data, by = "fips")
 
-Combined.data %>%
-  ggplot(aes(long, lat, group = group, fill = deaths)) +
-  geom_polygon(color = NA) +
-  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
-  labs(fill = "Median Household Income")
+p <- ggplot(data = Combined.data,
+            mapping = aes(x = long, y = lat,
+                          fill = cases, 
+                          group = group))
+
+p1 <- p + geom_polygon(color = "gray90", size = 0.05) + coord_equal()

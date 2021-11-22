@@ -38,7 +38,6 @@ data(statepop)
 ## Calculates the percentage of each population that was infected
 Combined.data$Percentinf = Combined.data$cases/Combined.data$POPESTIMATE2020
 
-
 #############################################
 ## Graphing data
 #############################################

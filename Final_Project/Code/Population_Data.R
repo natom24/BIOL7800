@@ -1,8 +1,11 @@
 library("stringr")
 library("tidyverse")
-#devtools::install_github("UrbanInstitute/urbnmapr")
-library("socviz")
+library("usmap")
 library("ggthemes")
+
+######################################
+## Calling/Cleaning Data
+######################################
 
 ## Imports Data from The New York Times, based on reports from state and local health agencies.
 Covid_data = read.csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv")
@@ -17,23 +20,28 @@ County_data = read.csv("Final_Project/Downloaded_Data/co-est2020.csv")
 
 ## Merges nytimes Covid Data with census data based on fips number
 Combined.data = merge(x = Covid_data, County_data, by = "fips")
+  Combined.data[,1]= str_pad(Combined.data[,1], 5 ,side = "left","0") # Adds zeros to the left of any fips values less than 4 numbers wide
 
-## Removes repeated columns
-Combined.data = Combined.data[,-c(11,12)]
+## Calls the counties data set from the usmaps package
+data(countypop);
 
-## Calls the counties data set from urbnmapr
-data(county_map)
+## Combines the 
+Combined.data = merge(x = countypop, Combined.data, by = "fips")
 
-## Renames the fips column to "fips"
-county_map = rename(county_map, fips = id)
+## Calls the state data set from the usmaps package
+data(statepop)
 
-county_map$fips <- sub("^0+", "", county_map$fips)
+#############################################
+#Calculations/Data Manipulations
+#############################################
 
-Combined.data = merge(x = county_map, Combined.data, by = "fips")
+## Calculates the percentage of each population that was infected
+Combined.data$Percentinf = Combined.data$cases/Combined.data$POPESTIMATE2020
 
-p <- ggplot(data = Combined.data,
-            mapping = aes(x = long, y = lat,
-                          fill = cases, 
-                          group = group))
 
-p1 <- p + geom_polygon(color = "gray90", size = 0.05) + coord_equal()
+#############################################
+## Graphing data
+#############################################
+
+plot_usmap(data = Combined.data, values = "Percentinf", color = "white") +
+  scale_fill_continuous(low = "white", high = "blue", name = "Proportion I")

@@ -1,0 +1,24 @@
+---
+title: "HW_07"
+author: "Nathaniel Haulk"
+date: "11/22/2021"
+output: pdf_document
+---
+
+```{r setup}
+
+## Installs the package if not already downloaded
+if(!require(noZero)) devtools::install_github("natom24/noZero")
+library(noZero)
+
+## Creates matrices of 0s and 1s
+set.seed(123)
+x = matrix(rpois(100, 0.1), 10, 10)
+
+x.nocol = rm_0s_by_col(x)
+
+print(x.nocol)
+
+x.norow = rm_0s_by_row(x)
+print(x.norow)
+```

@@ -32,7 +32,7 @@ Combined.data = merge(x = countypop, Combined.data, by = "fips")
 data(statepop)
 
 #############################################
-#Calculations/Data Manipulations
+#Calculations/Data Manipulation
 #############################################
 
 ## Calculates the percentage of each population that was infected

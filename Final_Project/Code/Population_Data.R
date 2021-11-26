@@ -1,5 +1,6 @@
 library("stringr")
-library("tidyverse")
+library("dplyr")
+library("ggplot2")
 library("usmap")
 library("ggthemes")
 
@@ -67,7 +68,7 @@ plot_usmap(data = Combined.data, values = "maskyn", color = "black") +
 ############################################
 
 ## According to the United States Health Resources and Services Administration, counties are considered rural if the population is less than 50,000 people
-
+## Classifies counties as rural or urban based on whether or not the population is above 50,000
 for(i in 1:nrow(Combined.data)){
   if(Combined.data$POPESTIMATE2020[i] < 50000){
     Combined.data$rural_urban[i] = 0
@@ -83,5 +84,24 @@ plot_usmap(data = Combined.data, values = "rural_urban", color = "black") +
 #############################################
 ## Comparing infection rates
 #############################################
+rural = NULL
+urban = NULL
 
-x = fit_d = lm(y~x, data = Combined.data)
+
+for(i in 1:nrow(Combined.data)){
+  if(Combined.data$rural_urban[i] == 1){
+    urban = rbind(urban,Combined.data$Percentinf[i])
+  }
+  else{
+    rural = rbind(rural,Combined.data$Percentinf[i])
+  }
+}
+
+rubar = data.frame(c("Rural", "Urban"),c(mean(rural),mean(urban)),c(sd(rural),sd(urban)))
+
+ggplot(data = rubar, aes(x=rubar[,1], y = rubar[,2]))+
+  geom_bar(stat="identity")+
+  geom_errorbar(aes(ymin=rubar[,2]-rubar[,3], ymax=rubar[,2]+rubar[,3]), width=.2,
+                position=position_dodge(.9))+
+  labs(x="County Classification", y = "Total Infection Prevalence")
+  

@@ -4,9 +4,10 @@ library("ggplot2")
 library("usmap")
 library("ggthemes")
 
-##############################################
+
+######################################################################################################
 ## Infection numbers in relation to total Pop
-##############################################
+######################################################################################################
 
 ## Imports Data from The New York Times, based on reports from state and local health agencies.
 Covid_data = read.csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv")
@@ -38,10 +39,33 @@ plot_usmap(data = Combined.data, values = "Percentinf", color = "white") +
 
 ggsave(path = "Final_project/Graphs", filename = "US_Inf_Map.png") # Save map
 
+######################################################################################################
+# Current Infection Averages per County
+######################################################################################################
 
-#############################################
+## Imports Data from The New York Times, based on reports from state and local health agencies.
+Covid_avg_data = read.csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/rolling-averages/us-counties-2021.csv")
+Covid_avg_data$geoid = gsub("\\D","", Covid_avg_data$geoid) # extracts numeric value from geoid column
+
+## Filters out all but the most recent day. Average data tends to drag behind by about a day so this may need to be changed depending on when the results were last updated.
+Covid_avg_data = subset(Covid_avg_data, date == Sys.Date() -1)
+
+names(Covid_avg_data)[2] = "fips" #relabels geoid as fips
+
+Covid_avg_data = Covid_avg_data[,c(2,6)] # Pulls just average covid cases and the fips number
+
+Combined.data = merge(x = Combined.data, Covid_avg_data, by = "fips")
+
+Combined.data$cases_avg = Combined.data$cases_avg/Combined.data$POPESTIMATE2020
+
+plot_usmap(data = Combined.data, values = "cases_avg", color = "white") +
+  scale_fill_continuous(low = "white", high = "dark green", name = "Current Proportion I")
+
+ggsave(path = "Final_project/Graphs", filename = "US_Inf_avg_Map.png") # Save map
+
+######################################################################################################
 ## Recording Mask mandate Usage
-#############################################
+######################################################################################################
 
 ## Call Mask Mandate Data
 mask_mandate_data = read.csv("Final_Project/Downloaded_Data/county_mask_mandate_data.csv")
@@ -69,9 +93,10 @@ plot_usmap(data = Combined.data, values = "maskyn", color = "black") +
 # Save bar graphs
 ggsave(path = "Final_project/Graphs", filename = "US_mask_mandate.png")
 
-############################################
+
+#######################################################################################################
 ## Classifying county as Rural or Urban
-############################################
+#######################################################################################################
 
 ## According to the United States Health Resources and Services Administration, counties are considered rural if the population is less than 50,000 people
 ## Classifies counties as rural or urban based on whether or not the population is above 50,000
@@ -89,26 +114,34 @@ plot_usmap(data = Combined.data, values = "rural_urban", color = "black") +
 
 ggsave(path = "Final_project/Graphs", filename = "US_RU_Map.png") # Save map
 
-#############################################
-## Comparing infection rates
-#############################################
+
+########################################################################################################
+## Comparing infection rates between rural and non-rural counties
+########################################################################################################
 rural = NULL
 urban = NULL
 
+cur_rural = NULL
+cur_urban = NULL
 
+# Runs through data to record which values are rural and urban
 for(i in 1:nrow(Combined.data)){
   if(Combined.data$rural_urban[i] == 1){
     urban = rbind(urban,Combined.data$Percentinf[i])
+    cur_urban = rbind(cur_urban,Combined.data$cases_avg[i])
   }
   else{
     rural = rbind(rural,Combined.data$Percentinf[i])
+    cur_rural = rbind(cur_rural,Combined.data$cases_avg[i])
   }
 }
 
-urb.rur = data.frame(c("Rural", "Urban"),c(mean(rural),mean(urban)),c(sd(rural),sd(urban)))
+urb.rur = data.frame(c("Rural", "Urban"),c(mean(rural),mean(urban)),c(sd(rural),sd(urban))) # Creates dataframe with the mean and sd for both rural and urban areas
 
-urb.rur.t = t.test(urban,rural)
+# Runs t.test
+print(t.test(urban,rural))
 
+# Graphs difference
 ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
   geom_bar(stat="identity")+
   geom_errorbar(aes(ymin=urb.rur[,2]-urb.rur[,3], ymax=urb.rur[,2]+urb.rur[,3]), width=.2,
@@ -116,3 +149,5 @@ ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
   labs(x="County Classification", y = "Total Infection Prevalence")
   
 ggsave(path = "Final_project/Graphs", filename = "US_Inf_Bar.png") # Save map
+
+

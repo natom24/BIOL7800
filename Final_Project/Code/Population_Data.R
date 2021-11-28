@@ -26,7 +26,7 @@ Combined.data = merge(x = Covid_data, County_data, by = "fips")
 ## Calls the counties data set from the usmaps package
 data(countypop);
 
-## Combines the 
+## Combines datasets based on fips
 Combined.data = merge(x = countypop, Combined.data, by = "fips")
 
 ## Calculates the percentage of each population that was infected
@@ -35,6 +35,9 @@ Combined.data$Percentinf = Combined.data$cases/Combined.data$POPESTIMATE2020
 ## Graph percentage of cases vs total pop across the whole US
 plot_usmap(data = Combined.data, values = "Percentinf", color = "white") +
   scale_fill_continuous(low = "white", high = "blue", name = "Proportion I")
+
+ggsave(path = "Final_project/Graphs", filename = "US_Inf_Map.png") # Save map
+
 
 #############################################
 ## Recording Mask mandate Usage
@@ -63,6 +66,9 @@ plot_usmap(data = Combined.data, values = "maskyn", color = "black") +
   scale_fill_continuous(low = "white", high = "lightgreen", name = "Proportion I") +
   theme(legend.position = "none")
 
+# Save bar graphs
+ggsave(path = "Final_project/Graphs", filename = "US_mask_mandate.png")
+
 ############################################
 ## Classifying county as Rural or Urban
 ############################################
@@ -81,6 +87,8 @@ plot_usmap(data = Combined.data, values = "rural_urban", color = "black") +
   scale_fill_continuous(low = "white", high = "brown", name = "Proportion I") +
   theme(legend.position = "none")
 
+ggsave(path = "Final_project/Graphs", filename = "US_RU_Map.png") # Save map
+
 #############################################
 ## Comparing infection rates
 #############################################
@@ -97,11 +105,14 @@ for(i in 1:nrow(Combined.data)){
   }
 }
 
-rubar = data.frame(c("Rural", "Urban"),c(mean(rural),mean(urban)),c(sd(rural),sd(urban)))
+urb.rur = data.frame(c("Rural", "Urban"),c(mean(rural),mean(urban)),c(sd(rural),sd(urban)))
 
-ggplot(data = rubar, aes(x=rubar[,1], y = rubar[,2]))+
+urb.rur.t = t.test(urban,rural)
+
+ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
   geom_bar(stat="identity")+
-  geom_errorbar(aes(ymin=rubar[,2]-rubar[,3], ymax=rubar[,2]+rubar[,3]), width=.2,
+  geom_errorbar(aes(ymin=urb.rur[,2]-urb.rur[,3], ymax=urb.rur[,2]+urb.rur[,3]), width=.2,
                 position=position_dodge(.9))+
   labs(x="County Classification", y = "Total Infection Prevalence")
   
+ggsave(path = "Final_project/Graphs", filename = "US_Inf_Bar.png") # Save map

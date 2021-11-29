@@ -25,7 +25,7 @@ Combined.data = merge(x = Covid_data, County_data, by = "fips")
   Combined.data[,1]= str_pad(Combined.data[,1], 5 ,side = "left","0") # Adds zeros to the left of any fips values less than 5 numbers wide
 
 ## Calls the counties data set from the usmaps package
-data(countypop);
+data(countypop)
 
 ## Combines datasets based on fips
 Combined.data = merge(x = countypop, Combined.data, by = "fips")
@@ -148,11 +148,12 @@ ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
                 position=position_dodge(.9))+
   labs(x="County Classification", y = "Total Infection Prevalence")
   
-ggsave(path = "Final_project/Graphs", filename = "US_Inf_Bar.png") # Save map
+ggsave(path = "Final_project/Graphs", filename = "US_Inf_HRSA_Bar.png") # Save map
 
-########################################################################################################
+#########################################################################v############################################################
 ## Comparing infection rates between rural and non-rural counties assuming Census.gov Standard as Well as Graph New Map
-########################################################################################################
+######################################################################################################################################
+
 rural = NULL
 urbana = NULL
 urbanc = NULL
@@ -187,6 +188,8 @@ ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
   geom_errorbar(aes(ymin=urb.rur[,2]-urb.rur[,3], ymax=urb.rur[,2]+urb.rur[,3]), width=.2,
                 position=position_dodge(.9))+
   labs(x="County Classification", y = "Total Infection Prevalence")
+
+ggsave(path = "Final_project/Graphs", filename = "US_Inf_CDC_Bar.png") # Save map
 
 ## Plot the County classifications under the CDC classification
 plot_usmap(data = Combined.data, values = "rural_urban_CDC", color = "black") +

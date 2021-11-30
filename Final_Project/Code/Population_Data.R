@@ -114,7 +114,7 @@ for(i in 1:nrow(Combined.data)){
 # Test significance
 print(t.test(masky,maskn))
 
-maskavg = data.frame(c("masky", "maskn"),c(mean(masky),mean(maskn)),c(sd(masky),sd(maskn))) # Creates dataframe with the mean and sd for both rural and urban areas
+maskavg = data.frame(c("Mask Mandate", "No Mask Mandate"),c(mean(masky),mean(maskn)),c(sd(masky),sd(maskn))) # Creates dataframe with the mean and sd for both rural and urban areas
 
 
 ## Plot mask data
@@ -129,9 +129,9 @@ ggplot(data = maskavg, aes(x=maskavg[,1], y = maskavg[,2]))+
   geom_bar(stat="identity",fill =c("lightgreen","white") )+
   geom_errorbar(aes(ymin=maskavg[,2]-maskavg[,3], ymax=maskavg[,2]+maskavg[,3]), width=.2,
                 position=position_dodge(.9))+
-  labs(x="County Classification", y = "Total Infection Prevalence")
+  labs(x=NULL, y = "Total Infection Prevalence")
 
-ggsave(path = "Final_project/Graphs", filename = "US_mask_Bar.png") # Save map
+ggsave(path = "Final_project/Graphs", filename = "US_mask_Bar.png") # Save bar graph
 
 #######################################################################################################
 ## Classifying county as Rural or Urban
@@ -187,7 +187,7 @@ ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
                 position=position_dodge(.9))+
   labs(x="County Classification", y = "Total Infection Prevalence")
   
-ggsave(path = "Final_project/Graphs", filename = "US_Inf_HRSA_Bar.png") # Save map
+ggsave(path = "Final_project/Graphs", filename = "US_Inf_HRSA_Bar.png") # Save bar graph
 
 #########################################################################v############################################################
 ## Comparing infection rates between rural and non-rural counties assuming Census.gov Standard as Well as Graph New Map

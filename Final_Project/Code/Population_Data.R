@@ -84,6 +84,38 @@ for(i in 1:nrow(mask_mandate_data)){
 # Records if a county had a mask mandate into Combined.data
 Combined.data = merge(x = Combined.data,mask_mandate_data[,c(3,20)] , by = "fips")
 
+masky = NULL
+maskn = NULL
+
+for(i in 1:nrow(Combined.data)){
+  if(Combined.data$maskyn[i] == 1){
+    masky = Combined.data$Percentinf[i]
+  }
+  
+  else{
+    maskn = Combined.data$Percentinf[i]
+  }
+}
+
+## Used to test and record infection values based on whether or not a mask mandate was in place
+masky = NULL
+maskn = NULL
+
+for(i in 1:nrow(Combined.data)){
+  if(Combined.data$maskyn[i] == 1){
+    masky = rbind(masky,Combined.data$Percentinf[i])
+  }
+  
+  else{
+    maskn = rbind(maskn,Combined.data$Percentinf[i])
+  }
+}
+
+# Test significance
+print(t.test(masky,maskn))
+
+maskavg = data.frame(c("masky", "maskn"),c(mean(masky),mean(maskn)),c(sd(masky),sd(maskn))) # Creates dataframe with the mean and sd for both rural and urban areas
+
 
 ## Plot mask data
 plot_usmap(data = Combined.data, values = "maskyn", color = "black") +
@@ -93,6 +125,13 @@ plot_usmap(data = Combined.data, values = "maskyn", color = "black") +
 # Save bar graphs
 ggsave(path = "Final_project/Graphs", filename = "US_mask_mandate.png", width = 49, height = 30)
 
+ggplot(data = maskavg, aes(x=maskavg[,1], y = maskavg[,2]))+
+  geom_bar(stat="identity",fill =c("lightgreen","white") )+
+  geom_errorbar(aes(ymin=maskavg[,2]-maskavg[,3], ymax=maskavg[,2]+maskavg[,3]), width=.2,
+                position=position_dodge(.9))+
+  labs(x="County Classification", y = "Total Infection Prevalence")
+
+ggsave(path = "Final_project/Graphs", filename = "US_mask_Bar.png") # Save map
 
 #######################################################################################################
 ## Classifying county as Rural or Urban

@@ -5,12 +5,6 @@ library("ggplot2")
 Covid_data = read.csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv")
   Covid_data = Covid_data[!is.na(Covid_data$fips),] # Removes any fips values that are NA
 
-  
-# Covid data from the start of the pandemic 
-#Covid_data_byday = read.csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv")
-#Covid_data_byday = Covid_data_byday[!is.na(Covid_data_byday$fips),] # Remove NAs
-#Covid_data_byday = Covid_data_byday[!Covid_data_byday$deaths == 0,] # Remove any 0s in 
-
 
 County_data = read.csv("Final_Project/Downloaded_Data/co-est2020.csv")
 County_data = County_data[!County_data$COUNTY == 0,] # Removes any county values labeled as 0 (total state population)
@@ -30,21 +24,20 @@ R0_data = R0_data[,c(3,13)]
 Combined.data = merge(x = Combined.data, R0_data, by = "fips")
 
 ## Parameter values from Ahmed et al 2021
-beta = .08 # Contact rate
-lambda = .0025# Births into system
-gam = 2.01e-4#Rate of exposed to infected
-mu =  .00002#Natural mortality rate
-ep =  .45#Rate of exposed to symptomatic infected
-sig = .067#Rate of transfer from exposed to asymptomatic infected
-tau = 2e-4#Transfer of susceptible to quarantine
+# beta = .08 # Contact rate
+lambda = .0025 # Births into system
+gam = 2.01e-4 #Rate of exposed to infected
+mu =  .00002 #Natural mortality rate
+ep =  .45 #Rate of exposed to symptomatic infected
+sig = .067 #Rate of transfer from exposed to asymptomatic infected
+tau = 2e-4 #Transfer of susceptible to quarantine
 
 Combined.data$beta = Combined.data$R0.pred*((ep+mu+sig+gam)*(tau+mu))/lambda
 
 Combined.data$curRt = (Combined.data$POPESTIMATE2020-Combined.data$cases)/Combined.data$POPESTIMATE2020*(beta*lambda)/((ep+mu+sig+gam)*(tau+mu))
 
-plot_usmap(data = Combined.data, values = "curRt", color = "black") +
-  scale_fill_continuous(low = "white", high = "#006666", name = "Current Rt")
+plot_usmap(data = Combined.data, values = "curRt", color = "white",exclude =c("AK","HI")) +
+  scale_fill_continuous(low = "yellow", high = "blue", name = "Current Rt", limits = c(.5,4))
 
 ggsave(path = "Final_project/Graphs", filename = "US_Cur_Rt_Map.png", width = 49, height = 30) # Save map
 
-ggsave(ggsave(path = "Final_project/Graphs", filename = "US_cur_Rt_Map.png")) # Save map

@@ -37,7 +37,7 @@ Combined.data$Percentinf = Combined.data$cases/Combined.data$POPESTIMATE2020
 plot_usmap(data = Combined.data, values = "Percentinf", color = "white") +
   scale_fill_continuous(low = "white", high = "blue", name = "Proportion I")
 
-ggsave(path = "Final_project/Graphs", filename = "US_Inf_Map.png") # Save map
+ggsave(path = "Final_project/Graphs", filename = "US_Inf_Map.png", width = 49, height = 30) # Save map
 
 ######################################################################################################
 # Current Infection Averages per County
@@ -58,10 +58,10 @@ Combined.data = merge(x = Combined.data, Covid_avg_data, by = "fips")
 
 Combined.data$cases_avg = Combined.data$cases_avg/Combined.data$POPESTIMATE2020
 
-plot_usmap(data = Combined.data, values = "cases_avg", color = "white") +
+plot_usmap(data = Combined.data, values = "cases_avg", color = "black") +
   scale_fill_continuous(low = "white", high = "dark green", name = "Current Proportion I")
 
-ggsave(path = "Final_project/Graphs", filename = "US_Inf_avg_Map.png") # Save map
+ggsave(path = "Final_project/Graphs", filename = "US_Inf_avg_Map.png", width = 49, height = 30) # Save map
 
 ######################################################################################################
 ## Recording Mask mandate Usage
@@ -91,7 +91,7 @@ plot_usmap(data = Combined.data, values = "maskyn", color = "black") +
   theme(legend.position = "none")
 
 # Save bar graphs
-ggsave(path = "Final_project/Graphs", filename = "US_mask_mandate.png")
+ggsave(path = "Final_project/Graphs", filename = "US_mask_mandate.png", width = 49, height = 30)
 
 
 #######################################################################################################
@@ -112,7 +112,7 @@ plot_usmap(data = Combined.data, values = "rural_urban_HRSA", color = "black") +
   scale_fill_continuous(low = "white", high = "brown", name = "Proportion I") +
   theme(legend.position = "none")
 
-ggsave(path = "Final_project/Graphs", filename = "US_RU_HRSA_Map.png") # Save map
+ggsave(path = "Final_project/Graphs", filename = "US_RU_HRSA_Map.png", width = 49, height = 30) # Save map
 
 
 ########################################################################################################
@@ -126,7 +126,7 @@ cur_urban = NULL
 
 # Runs through data to record which values are rural and urban
 for(i in 1:nrow(Combined.data)){
-  if(Combined.data$rural_urban[i] == 1){
+  if(Combined.data$POPESTIMATE2020[i] >= 50000){
     urban = rbind(urban,Combined.data$Percentinf[i])
     cur_urban = rbind(cur_urban,Combined.data$cases_avg[i])
   }
@@ -143,7 +143,7 @@ print(t.test(urban,rural))
 
 # Graphs difference
 ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
-  geom_bar(stat="identity")+
+  geom_bar(stat="identity",fill =c("brown","white") )+
   geom_errorbar(aes(ymin=urb.rur[,2]-urb.rur[,3], ymax=urb.rur[,2]+urb.rur[,3]), width=.2,
                 position=position_dodge(.9))+
   labs(x="County Classification", y = "Total Infection Prevalence")
@@ -184,7 +184,7 @@ for(i in 1:nrow(Combined.data)){
 urb.rur = data.frame(c("Rural", "Urban Area", "Urban Cluster"),c(mean(rural),mean(urbana),mean(urbanc)),c(sd(rural),sd(urbana),sd(urbanc))) # Creates dataframe with the mean and sd for both rural and urban areas
 
 ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
-  geom_bar(stat="identity")+
+  geom_bar(stat="identity",fill =c("brown","white","#DC968D"))+
   geom_errorbar(aes(ymin=urb.rur[,2]-urb.rur[,3], ymax=urb.rur[,2]+urb.rur[,3]), width=.2,
                 position=position_dodge(.9))+
   labs(x="County Classification", y = "Total Infection Prevalence")
@@ -196,4 +196,4 @@ plot_usmap(data = Combined.data, values = "rural_urban_CDC", color = "black") +
   scale_fill_continuous(low = "white", high = "brown", name = "Proportion I") +
   theme(legend.position = "none")
 
-ggsave(path = "Final_project/Graphs", filename = "US_RU_CDC_Map.png") # Save map
+ggsave(path = "Final_project/Graphs", filename = "US_RU_CDC_Map.png", width = 49, height = 30) # Save map

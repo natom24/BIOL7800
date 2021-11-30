@@ -43,6 +43,8 @@ Combined.data$beta = Combined.data$R0.pred*((ep+mu+sig+gam)*(tau+mu))/lambda
 Combined.data$curRt = (Combined.data$POPESTIMATE2020-Combined.data$cases)/Combined.data$POPESTIMATE2020*(beta*lambda)/((ep+mu+sig+gam)*(tau+mu))
 
 plot_usmap(data = Combined.data, values = "curRt", color = "black") +
-  scale_fill_continuous(low = "white", high = "black", name = "Current Rt")
+  scale_fill_continuous(low = "white", high = "#006666", name = "Current Rt")
+
+ggsave(path = "Final_project/Graphs", filename = "US_Cur_Rt_Map.png", width = 49, height = 30) # Save map
 
 ggsave(ggsave(path = "Final_project/Graphs", filename = "US_cur_Rt_Map.png")) # Save map

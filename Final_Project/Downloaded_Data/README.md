@@ -2,7 +2,7 @@
 
 Repository for the Downloaded_Data subfolder
 
-## Source of county_mask_mandate_data:
+## Source of co-est2020:
 
 U.S. Census Bureau (2021). 2010-2020 County Population Estimates. Retrieved from https://www2.census.gov/programs-surveys/popest/datasets/2010-2020/counties/totals/
 

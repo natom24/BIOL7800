@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.12.3)  5 DEC 2021 14:54
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.12.3)  5 DEC 2021 23:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1509,44 +1509,57 @@ LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
 (Font)              scaled to size 17.28pt on input line 206.
 Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 17.28pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf
+
+Underfull \hbox (badness 1292) in paragraph at lines 210--211
+[]\TU/LinLibertine(0)/m/n/12 Mask mandates, social distancing, and vaccination have all been proven to reduce the 
+ []
+
+
+Underfull \hbox (badness 1325) in paragraph at lines 212--213
+\TU/LinLibertine(0)/m/n/12 tend to be better environments for a disease to persist when compared to high spatial 
+ []
+
+[2
+
+]
 Requested font "[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;" at 8.4pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf
 Requested font "[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;" at 6.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 12.0pt on input line 217.
+(Font)              scaled to size 12.0pt on input line 214.
 Requested font "libertinust1-mathit" at 12.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit.tfm
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 8.4pt on input line 217.
+(Font)              scaled to size 8.4pt on input line 214.
 Requested font "libertinust1-mathit" at 8.4pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit.tfm
 LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 6.0pt on input line 217.
+(Font)              scaled to size 6.0pt on input line 214.
 Requested font "libertinust1-mathit" at 6.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit.tfm
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.00128pt on input line 217.
+(Font)              scaled to size 12.00128pt on input line 214.
 Requested font "[latinmodern-math.otf]/OT:script=math;language=dflt;" at 12.00128pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.40088pt on input line 217.
+(Font)              scaled to size 8.40088pt on input line 214.
 Requested font "[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;" at 8.40088pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 217.
+(Font)              scaled to size 6.00064pt on input line 214.
 Requested font "[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;" at 6.00064pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 217.
+(Font)              scaled to size 11.99872pt on input line 214.
 Requested font "[latinmodern-math.otf]/OT:script=math;language=dflt;" at 11.99872pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.3991pt on input line 217.
+(Font)              scaled to size 8.3991pt on input line 214.
 Requested font "[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;" at 8.3991pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 217.
+(Font)              scaled to size 5.99936pt on input line 214.
 Requested font "[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;" at 5.99936pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf
 Requested font "msam10" at 12.0pt
@@ -1562,76 +1575,75 @@ Requested font "msbm10" at 8.4pt
 Requested font "msbm7" at 6.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 12.0pt on input line 217.
+(Font)              scaled to size 12.0pt on input line 214.
 Requested font "libertinust1-mathbb" at 12.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathbb.tfm
 LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 8.4pt on input line 217.
+(Font)              scaled to size 8.4pt on input line 214.
 Requested font "libertinust1-mathbb" at 8.4pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathbb.tfm
 LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 6.0pt on input line 217.
+(Font)              scaled to size 6.0pt on input line 214.
 Requested font "libertinust1-mathbb" at 6.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathbb.tfm
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 12.0pt on input line 217.
+(Font)              scaled to size 12.0pt on input line 214.
 Requested font "libertinust1-mathrm-bold" at 12.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm-bold.tfm
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 8.4pt on input line 217.
+(Font)              scaled to size 8.4pt on input line 214.
 Requested font "libertinust1-mathrm-bold" at 8.4pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm-bold.tfm
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 6.0pt on input line 217.
+(Font)              scaled to size 6.0pt on input line 214.
 Requested font "libertinust1-mathrm-bold" at 6.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathrm-bold.tfm
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 12.0pt on input line 217.
+(Font)              scaled to size 12.0pt on input line 214.
 Requested font "libertinust1-mathit-bold" at 12.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 8.4pt on input line 217.
+(Font)              scaled to size 8.4pt on input line 214.
 Requested font "libertinust1-mathit-bold" at 8.4pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
 LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 6.0pt on input line 217.
+(Font)              scaled to size 6.0pt on input line 214.
 Requested font "libertinust1-mathit-bold" at 6.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 217.
+(Font)              scaled to size 8.4pt on input line 221.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 8.4pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 217.
+(Font)              scaled to size 6.0pt on input line 221.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 6.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 222.
+(Font)              scaled to size 14.4pt on input line 226.
 Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 14.4pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf
-LaTeX Font Info:    Trying to load font information for TU+zi4 on input line 227.
-LaTeX Font Info:    No file TUzi4.fd. on input line 227.
+LaTeX Font Info:    Trying to load font information for TU+zi4 on input line 231.
+LaTeX Font Info:    No file TUzi4.fd. on input line 231.
 
 LaTeX Font Warning: Font shape `TU/zi4/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 227.
+(Font)              using `TU/lmr/m/n' instead on input line 231.
 
 
-LaTeX Warning: Reference `tab:tableName' on page 2 undefined on input line 227.
+LaTeX Warning: Reference `tab:tableName' on page 3 undefined on input line 231.
+
+[3]
+
+LaTeX Warning: Reference `fig:figName' on page 4 undefined on input line 240.
 
 
-LaTeX Warning: Reference `fig:figName' on page 2 undefined on input line 236.
+LaTeX Warning: Reference `fig:fig2' on page 4 undefined on input line 246.
 
-
-LaTeX Warning: Reference `fig:fig2' on page 2 undefined on input line 242.
-
-[2
-
-]
-Overfull \hbox (2.58334pt too wide) in paragraph at lines 259--261
+[4]
+Overfull \hbox (2.58334pt too wide) in paragraph at lines 290--292
 []\TU/LinLibertine(0)/m/n/12 Nguyen, M. 2021. Mask Mandates and COVID-19 Related Symptoms in the US. ClinicoEconomics 
  []
 
-[3] [1
+[5] [6] [1
 
 ] (./Final-Manuscript.aux)
 
@@ -1646,10 +1658,10 @@ Package rerunfilecheck Info: File `Final-Manuscript.out' has not changed.
 Here is how much of TeX's memory you used:
  31777 strings out of 478256
  621870 string characters out of 5854460
- 961857 words of memory out of 5000000
+ 964857 words of memory out of 5000000
  51895 multiletter control sequences out of 15000+600000
  439101 words of font info for 139 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,11n,117p,607b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 86i,11n,117p,1485b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Final-Manuscript.pdf (4 pages).
+Output written on Final-Manuscript.pdf (7 pages).

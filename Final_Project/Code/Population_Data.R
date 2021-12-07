@@ -14,7 +14,7 @@ Covid_data = read.csv("https://raw.githubusercontent.com/nytimes/covid-19-data/m
   Covid_data = Covid_data[!is.na(Covid_data$fips),] # Removes any fips values that are NA
 
 ## Imports Data county population data from the census bureau. 
-County_data = read.csv("Final_Project/Downloaded_Data/co-est2020.csv")
+County_data = read.csv("Downloaded_Data/co-est2020.csv")
   County_data = County_data[!County_data$COUNTY == 0,] # Removes any county values labeled as 0 (total state population)
   County_data$COUNTY = str_pad(County_data$COUNTY, 3 ,side = "left","0") # Adds 0s 
   County_data$fips = str_c(County_data$STATE, "", County_data$COUNTY) # Crates fips labels to compare to covid dataset
@@ -34,10 +34,10 @@ Combined.data = merge(x = countypop, Combined.data, by = "fips")
 Combined.data$Percentinf = Combined.data$cases/Combined.data$POPESTIMATE2020
 
 ## Graph percentage of cases vs total pop across the whole US
-plot_usmap(data = Combined.data, values = "Percentinf", color = "white") +
+us_totinf = plot_usmap(data = Combined.data, values = "Percentinf", color = "white", size = .1) +
   scale_fill_continuous(low = "white", high = "blue", name = "Proportion I")
 
-ggsave(path = "Final_project/Graphs", filename = "US_Inf_Map.png", width = 49, height = 30) # Save map
+#ggsave(path = "Final_project/Graphs", filename = "US_Inf_Map.png", width = 49, height = 30) # Save map
 
 ######################################################################################################
 # Current Infection Averages per County
@@ -58,17 +58,17 @@ Combined.data = merge(x = Combined.data, Covid_avg_data, by = "fips")
 
 Combined.data$cases_avg = Combined.data$cases_avg/Combined.data$POPESTIMATE2020
 
-plot_usmap(data = Combined.data, values = "cases_avg", color = "black") +
-  scale_fill_continuous(low = "white", high = "dark green", name = "Current Proportion I")
+us_curinf =plot_usmap(data = Combined.data, values = "cases_avg", color = "white", size = .1) +
+  scale_fill_continuous(low = "white", high = "dark green", name = "Avg Cases")
 
-ggsave(path = "Final_project/Graphs", filename = "US_Inf_avg_Map.png", width = 49, height = 30) # Save map
+#ggsave(path = "Final_project/Graphs", filename = "US_Inf_avg_Map.png", width = 49, height = 30) # Save map
 
 ######################################################################################################
 ## Recording Mask mandate Usage
 ######################################################################################################
 
 ## Call Mask Mandate Data
-mask_mandate_data = read.csv("Final_Project/Downloaded_Data/county_mask_mandate_data.csv")
+mask_mandate_data = read.csv("Downloaded_Data/county_mask_mandate_data.csv")
   mask_mandate_data[,3]= str_pad(mask_mandate_data[,3], 5 ,side = "left","0") # Adds zeros to the left of any fips values less than 5 numbers wide
   names(mask_mandate_data)[3] = "fips"
 
@@ -118,20 +118,20 @@ maskavg = data.frame(c("Mask Mandate", "No Mask Mandate"),c(mean(masky),mean(mas
 
 
 ## Plot mask data
-plot_usmap(data = Combined.data, values = "maskyn", color = "black") +
+us_mask = plot_usmap(data = Combined.data, values = "maskyn", color = "black", size = .1) +
   scale_fill_continuous(low = "white", high = "lightgreen", name = "Proportion I") +
   theme(legend.position = "none")
 
 # Save bar graphs
-ggsave(path = "Final_project/Graphs", filename = "US_mask_mandate.png", width = 49, height = 30)
+#ggsave(path = "Final_project/Graphs", filename = "US_mask_mandate.png", width = 49, height = 30)
 
-ggplot(data = maskavg, aes(x=maskavg[,1], y = maskavg[,2]))+
+bar_mask = ggplot(data = maskavg, aes(x=maskavg[,1], y = maskavg[,2]))+
   geom_bar(stat="identity",fill =c("lightgreen","white") )+
   geom_errorbar(aes(ymin=maskavg[,2]-maskavg[,3], ymax=maskavg[,2]+maskavg[,3]), width=.2,
                 position=position_dodge(.9))+
   labs(x=NULL, y = "Total Infection Prevalence")
 
-ggsave(path = "Final_project/Graphs", filename = "US_mask_Bar.png") # Save bar graph
+#ggsave(path = "Final_project/Graphs", filename = "US_mask_Bar.png") # Save bar graph
 
 #######################################################################################################
 ## Classifying county as Rural or Urban
@@ -147,11 +147,11 @@ for(i in 1:nrow(Combined.data)){
     Combined.data$rural_urban_HRSA[i] = 1
   }
 }
-plot_usmap(data = Combined.data, values = "rural_urban_HRSA", color = "black") +
+US_RU_HRSA = plot_usmap(data = Combined.data, values = "rural_urban_HRSA", color = "black", size = .1) +
   scale_fill_continuous(low = "white", high = "brown", name = "Proportion I") +
   theme(legend.position = "none")
 
-ggsave(path = "Final_project/Graphs", filename = "US_RU_HRSA_Map.png", width = 49, height = 30) # Save map
+#ggsave(path = "Final_project/Graphs", filename = "US_RU_HRSA_Map.png", width = 49, height = 30) # Save map
 
 
 ########################################################################################################
@@ -181,13 +181,13 @@ urb.rur = data.frame(c("Rural", "Urban"),c(mean(rural),mean(urban)),c(sd(rural),
 print(t.test(urban,rural))
 
 # Graphs difference
-ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
+Bar_RU_HRSA =ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
   geom_bar(stat="identity",fill =c("brown","white") )+
   geom_errorbar(aes(ymin=urb.rur[,2]-urb.rur[,3], ymax=urb.rur[,2]+urb.rur[,3]), width=.2,
                 position=position_dodge(.9))+
   labs(x="County Classification", y = "Total Infection Prevalence")
   
-ggsave(path = "Final_project/Graphs", filename = "US_Inf_HRSA_Bar.png") # Save bar graph
+#ggsave(path = "Final_project/Graphs", filename = "US_Inf_HRSA_Bar.png") # Save bar graph
 
 #########################################################################v############################################################
 ## Comparing infection rates between rural and non-rural counties assuming Census.gov Standard as Well as Graph New Map
@@ -206,33 +206,33 @@ for(i in 1:nrow(Combined.data)){
   if(Combined.data$POPESTIMATE2020[i] >=50000){
     urbana = rbind(urbana,Combined.data$Percentinf[i])
     cur_urbana = rbind(cur_urbana,Combined.data$cases_avg[i])
-    Combined.data$rural_urban_CDC[i] = 1
+    Combined.data$rural_urban_Cen[i] = 1
   }
   else if(Combined.data$POPESTIMATE2020[i]<50000 && Combined.data$POPESTIMATE2020[i]>=2500){
     urbanc = rbind(urbanc,Combined.data$Percentinf[i])
     cur_urbanc = rbind(cur_urbanc,Combined.data$cases_avg[i])
-    Combined.data$rural_urban_CDC[i] = .5
+    Combined.data$rural_urban_Cen[i] = .5
   }
   else{ 
     rural = rbind(rural,Combined.data$Percentinf[i])
     cur_rural = rbind(cur_rural,Combined.data$cases_avg[i])
-    Combined.data$rural_urban_CDC[i] = 0
+    Combined.data$rural_urban_Cen[i] = 0
   }
 }
 
 urb.rur = data.frame(c("Rural", "Urban Area", "Urban Cluster"),c(mean(rural),mean(urbana),mean(urbanc)),c(sd(rural),sd(urbana),sd(urbanc))) # Creates dataframe with the mean and sd for both rural and urban areas
 
-ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
+Bar_RU_Cen = ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
   geom_bar(stat="identity",fill =c("brown","white","#DC968D"))+
   geom_errorbar(aes(ymin=urb.rur[,2]-urb.rur[,3], ymax=urb.rur[,2]+urb.rur[,3]), width=.2,
                 position=position_dodge(.9))+
   labs(x="County Classification", y = "Total Infection Prevalence")
 
-ggsave(path = "Final_project/Graphs", filename = "US_Inf_CDC_Bar.png") # Save map
+#ggsave(path = "Final_project/Graphs", filename = "US_Inf_Cen_Bar.png") # Save map
 
-## Plot the County classifications under the CDC classification
-plot_usmap(data = Combined.data, values = "rural_urban_CDC", color = "black") +
+## Plot the County classifications under the Census Bureau classification
+US_RU_Cen = plot_usmap(data = Combined.data, values = "rural_urban_Cen", color = "black", size = .1) +
   scale_fill_continuous(low = "white", high = "brown", name = "Proportion I") +
   theme(legend.position = "none")
 
-ggsave(path = "Final_project/Graphs", filename = "US_RU_CDC_Map.png", width = 49, height = 30) # Save map
+#ggsave(path = "Final_project/Graphs", filename = "US_RU_Cen_Map.png", width = 49, height = 30) # Save map

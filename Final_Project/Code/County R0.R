@@ -23,21 +23,37 @@ R0_data = R0_data[,c(3,13)]
 
 Combined.data = merge(x = Combined.data, R0_data, by = "fips")
 
+# Imports CDC Vaccine Data
+vac.data = read.csv("Final_Project/Downloaded_Data/COVID-19_Vaccinations_in_the_United_States_County.csv")
+vac.data = vac.data[vac.data$Date == "12/06/2021",] # Pulls Vaccine data from December 6, 2021
+vac.data = vac.data[,c(2,6)]
+names(vac.data)[1] = "fips"
+vac.data[,2] = vac.data[,2]/100
+Combined.data = merge(x = Combined.data, vac.data, by = "fips")
+
 ## Parameter values from Ahmed et al 2021
-# beta = .08 # Contact rate
 lambda = .0025 # Births into system
 gam = 2.01e-4 #Rate of exposed to infected
-mu =  .00002 #Natural mortality rate
+mu =  .0015 #Natural mortality rate
 ep =  .45 #Rate of exposed to symptomatic infected
 sig = .067 #Rate of transfer from exposed to asymptomatic infected
 tau = 2e-4 #Transfer of susceptible to quarantine
 
+
+
 Combined.data$beta = Combined.data$R0.pred*((ep+mu+sig+gam)*(tau+mu))/lambda
 
-Combined.data$curRt = (Combined.data$POPESTIMATE2020-Combined.data$cases)/Combined.data$POPESTIMATE2020*(beta*lambda)/((ep+mu+sig+gam)*(tau+mu))
+Combined.data$curRt = ((Combined.data$POPESTIMATE2020-Combined.data$cases)* Combined.data$Series_Complete_Pop_Pct)/Combined.data$POPESTIMATE2020*((Combined.data$beta*lambda)/((ep+mu+sig+gam)*(tau+mu)))
 
-plot_usmap(data = Combined.data, values = "curRt", color = "white",exclude =c("AK","HI")) +
-  scale_fill_continuous(low = "yellow", high = "blue", name = "Current Rt", limits = c(.5,4))
+map_rt_cur = plot_usmap(data = Combined.data, values = "curRt", color = "white",exclude =c("AK","HI")) +
+  scale_fill_continuous(low = "yellow", high = "blue", name = "Rt", limits = c(0,4))
 
-ggsave(path = "Final_project/Graphs", filename = "US_Cur_Rt_Map.png", width = 49, height = 30) # Save map
+#ggsave(path = "Final_project/Graphs", filename = "US_Cur_Rt_Map.png", width = 49, height = 30) # Save map
 
+## Parameter values from Ahmed et al 2021
+otau = 1e-4 #Transfer of susceptible to quarantine
+
+Combined.data$omnicron_Rt = ((Combined.data$POPESTIMATE2020-Combined.data$cases)* Combined.data$Series_Complete_Pop_Pct)/Combined.data$POPESTIMATE2020*((1.5*Combined.data$beta*lambda)/((ep+mu+sig+gam)*(otau+mu)))
+
+map_rt_omeg = plot_usmap(data = Combined.data, values = "omnicron_Rt", color = "white",exclude =c("AK","HI")) +
+  scale_fill_continuous(low = "yellow", high = "blue", name = "Rt", limits = c(0,4))

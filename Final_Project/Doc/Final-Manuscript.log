@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.12.3)  7 DEC 2021 01:15
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.12.7)  7 DEC 2021 14:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Final-Manuscript.tex
 (./Final-Manuscript.tex
-LaTeX2e <2021-11-15>
+LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2021-11-22> (c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size12.clo
@@ -1615,9 +1615,6 @@ LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
 Requested font "libertinust1-mathit-bold" at 6.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
 
-LaTeX Warning: Reference `fig:fig1' on page 3 undefined on input line 221.
-
-
 LaTeX Warning: Reference `fig:fig2' on page 3 undefined on input line 221.
 
 
@@ -1633,24 +1630,24 @@ LaTeX Warning: Reference `fig:fig5' on page 3 undefined on input line 221.
 LaTeX Warning: Reference `fig:fig6' on page 3 undefined on input line 221.
 
 [3] [4]
-
-LaTeX Warning: Reference `fig:figName' on page 5 undefined on input line 235.
-
-
-LaTeX Warning: Reference `fig:fig2' on page 5 undefined on input line 241.
-
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 245.
-Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 8.4pt
- -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf
-[5] [6]
-Overfull \hbox (2.58334pt too wide) in paragraph at lines 319--321
+File: Final-Manuscript_files/figure-latex/fig1-1.pdf Graphic file (type pdf)
+<use Final-Manuscript_files/figure-latex/fig1-1.pdf>
+File: Final-Manuscript_files/figure-latex/fig2, -1.pdf Graphic file (type pdf)
+<use Final-Manuscript_files/figure-latex/fig2, -1.pdf>
+[5]
+File: Final-Manuscript_files/figure-latex/fig7-1.pdf Graphic file (type pdf)
+<use Final-Manuscript_files/figure-latex/fig7-1.pdf>
+[6]
+File: Final-Manuscript_files/figure-latex/fig8-1.pdf Graphic file (type pdf)
+<use Final-Manuscript_files/figure-latex/fig8-1.pdf>
+[7] [8] [9]
+Overfull \hbox (2.58334pt too wide) in paragraph at lines 357--359
 []\TU/LinLibertine(0)/m/n/12 Nguyen, M. 2021. Mask Mandates and COVID-19 Related Symptoms in the US. ClinicoEconomics 
  []
 
-[7]
+[10] [11]
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 366.
+(Font)              scaled to size 14.4pt on input line 404.
 Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 14.4pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf
 [1
@@ -1660,15 +1657,15 @@ Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;m
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Final-Manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: CB81E9B88446B065B396DC901BA800E7;785.
+(rerunfilecheck)             Checksum: 3680A1571CE9F558AD20B76AE56E3DCF;790.
  ) 
 Here is how much of TeX's memory you used:
- 31775 strings out of 478256
- 621879 string characters out of 5854460
- 967384 words of memory out of 5000000
- 51895 multiletter control sequences out of 15000+600000
- 439044 words of font info for 139 fonts, out of 8000000 for 9000
+ 31821 strings out of 478256
+ 623841 string characters out of 5854460
+ 967675 words of memory out of 5000000
+ 51936 multiletter control sequences out of 15000+600000
+ 438979 words of font info for 138 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,11n,117p,2258b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 86i,11n,117p,2247b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Final-Manuscript.pdf (8 pages).
+Output written on Final-Manuscript.pdf (12 pages).

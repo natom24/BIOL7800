@@ -33,7 +33,7 @@ Combined.data = merge(x = Combined.data, vac.data, by = "fips")
 
 ## Parameter values from Ahmed et al 2021
 lambda = .0025 # Births into system
-gam = 2.01e-4 #Rate of exposed to infected
+gam = 2.01e-4 #Rate of exposed to quarantined
 mu =  .0015 #Natural mortality rate
 ep =  .45 #Rate of exposed to symptomatic infected
 sig = .067 #Rate of transfer from exposed to asymptomatic infected

@@ -116,7 +116,6 @@ print(t.test(masky,maskn))
 
 maskavg = data.frame(c("Mask Mandate", "No Mask Mandate"),c(mean(masky),mean(maskn)),c(sd(masky),sd(maskn))) # Creates dataframe with the mean and sd for both rural and urban areas
 
-
 ## Plot mask data
 us_mask = plot_usmap(data = Combined.data, values = "maskyn", color = "black", size = .1) +
   scale_fill_continuous(low = "white", high = "lightgreen", name = "Proportion I") +
@@ -175,15 +174,15 @@ for(i in 1:nrow(Combined.data)){
   }
 }
 
-urb.rur = data.frame(c("Rural", "Urban"),c(mean(rural),mean(urban)),c(sd(rural),sd(urban))) # Creates dataframe with the mean and sd for both rural and urban areas
+urb.rur1 = data.frame(c("Rural", "Urban"),c(mean(rural),mean(urban)),c(sd(rural),sd(urban))) # Creates dataframe with the mean and sd for both rural and urban areas
 
 # Runs t.test
 print(t.test(urban,rural))
 
 # Graphs difference
-Bar_RU_HRSA =ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
-  geom_bar(stat="identity",fill =c("brown","white") )+
-  geom_errorbar(aes(ymin=urb.rur[,2]-urb.rur[,3], ymax=urb.rur[,2]+urb.rur[,3]), width=.2,
+Bar_RU_HRSA = ggplot(data = urb.rur1, aes(x=urb.rur1[,1], y = urb.rur1[,2]))+
+  geom_bar(stat="identity", fill =c("brown","white") )+
+  geom_errorbar(aes(ymin=urb.rur1[,2]-urb.rur1[,3], ymax=urb.rur1[,2]+urb.rur1[,3]), width=.2,
                 position=position_dodge(.9))+
   labs(x="County Classification", y = "Total Infection Prevalence")
   

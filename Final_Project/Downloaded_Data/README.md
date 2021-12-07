@@ -14,3 +14,7 @@ Wright, A. L., Chawla, G., Chen, L., & Farmer, A. (2020). Tracking mask mandates
 ## Source of 42003_2020_1609_MOESM4_ESM:
 
 Ives, A. R., & Bozzuto, C. (2021). Estimating and explaining the spread of COVID-19 at the county level in the USA. Communications biology, 4(1), 1-9.
+
+## Source of COVID-19_Vaccinations_in_the_United_States_County
+
+CDC. 2021. “COVID-19 Vaccinations in the United States,County | Data | Centers for Disease Control and Prevention.” Centers for Disease Control and Prevention. https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-County/8xkx-amqh (December 6, 2021).

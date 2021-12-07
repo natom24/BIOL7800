@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.12.3)  5 DEC 2021 23:36
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.12.3)  7 DEC 2021 01:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1495,6 +1495,10 @@ LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 7.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 10.0pt on input line 195.
+Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 10.0pt
+ -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
 (Font)              scaled to size 12.0pt on input line 199.
 Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 12.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf
@@ -1610,58 +1614,61 @@ LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
 (Font)              scaled to size 6.0pt on input line 214.
 Requested font "libertinust1-mathit-bold" at 6.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
+
+LaTeX Warning: Reference `fig:fig1' on page 3 undefined on input line 221.
+
+
+LaTeX Warning: Reference `fig:fig2' on page 3 undefined on input line 221.
+
+
+LaTeX Warning: Reference `fig:fig3' on page 3 undefined on input line 221.
+
+
+LaTeX Warning: Reference `fig:fig4' on page 3 undefined on input line 221.
+
+
+LaTeX Warning: Reference `fig:fig5' on page 3 undefined on input line 221.
+
+
+LaTeX Warning: Reference `fig:fig6' on page 3 undefined on input line 221.
+
+[3] [4]
+
+LaTeX Warning: Reference `fig:figName' on page 5 undefined on input line 235.
+
+
+LaTeX Warning: Reference `fig:fig2' on page 5 undefined on input line 241.
+
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 221.
+(Font)              scaled to size 8.4pt on input line 245.
 Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 8.4pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 221.
-Requested font "[LinLibertine_R.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 6.0pt
- -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 226.
-Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 14.4pt
- -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf
-LaTeX Font Info:    Trying to load font information for TU+zi4 on input line 231.
-LaTeX Font Info:    No file TUzi4.fd. on input line 231.
-
-LaTeX Font Warning: Font shape `TU/zi4/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 231.
-
-
-LaTeX Warning: Reference `tab:tableName' on page 3 undefined on input line 231.
-
-[3]
-
-LaTeX Warning: Reference `fig:figName' on page 4 undefined on input line 240.
-
-
-LaTeX Warning: Reference `fig:fig2' on page 4 undefined on input line 246.
-
-[4]
-Overfull \hbox (2.58334pt too wide) in paragraph at lines 290--292
+[5] [6]
+Overfull \hbox (2.58334pt too wide) in paragraph at lines 319--321
 []\TU/LinLibertine(0)/m/n/12 Nguyen, M. 2021. Mask Mandates and COVID-19 Related Symptoms in the US. ClinicoEconomics 
  []
 
-[5] [6] [1
+[7]
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 366.
+Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 14.4pt
+ -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf
+[1
 
 ] (./Final-Manuscript.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Final-Manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: C8FBF82788D83647624D87A8B69D6C36;612.
+(rerunfilecheck)             Checksum: CB81E9B88446B065B396DC901BA800E7;785.
  ) 
 Here is how much of TeX's memory you used:
- 31777 strings out of 478256
- 621870 string characters out of 5854460
- 964857 words of memory out of 5000000
+ 31775 strings out of 478256
+ 621879 string characters out of 5854460
+ 967384 words of memory out of 5000000
  51895 multiletter control sequences out of 15000+600000
- 439101 words of font info for 139 fonts, out of 8000000 for 9000
+ 439044 words of font info for 139 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,11n,117p,1485b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 86i,11n,117p,2258b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Final-Manuscript.pdf (7 pages).
+Output written on Final-Manuscript.pdf (8 pages).

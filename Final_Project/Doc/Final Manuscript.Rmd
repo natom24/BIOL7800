@@ -106,42 +106,44 @@ source("Code/County_R0.R")
 
 # Results
 
-
+Counties varied considerably when comparing the total number of cases to the total population of that county (Figure \@ref(fig:fig1)). One standout county is Chattahoochee county in Georgia, having the highest percentage of cases to total population size at almost 60% of individuals having been infected. For the most part, total percentage of cases seems to be relatively evenly distributed throughout states with occasional outliers. Average cases in the last thirty days adjusted for total population size shows that the majority of cases occurs in the Northeastern counties as well as in the midwestern counties (Figure \@ref(fig:fig2)). Average cases tends to be relatively low in southern states, with the majority being near or at 0. 
 
 (ref:captionfig1) Total cases divided by the total population per county. Counties with the highest case rate are a darker blue color.
 
-```{r fig1, fig.width=7, fig.asp=1, fig.cap="(ref:captionfig1)"}
+```{r fig1, out.width='70%', fig.cap="(ref:captionfig1)"}
 print(us_totinf)
 ```
 
 (ref:captionfig2) Average number of cases in the past thirty days divided by the total population per county. Counties with the highest case rate are a dark green color.
 
-```{r fig2, , out.width='70%', fig.cap="(ref:captionfig2)"}
+```{r fig2, out.width='70%', fig.cap="(ref:captionfig2)"}
 print(us_curinf)
 ```
 
-(ref:captionfig2) **No - or _ in the caption ref.** No space at the end of this line!
+Mask data showed a predictable pattern where early adopters of mask mandates tended to have lower overall total prevalence. Counties that adopted early masks mandates had an average total prevalence of `r mean(masky)` while counties that did not adopt masks early had an average total prevalence of `r mean(maskn)`. The difference is significant with a p-value of `r mask.t.test[3]` (Figure \@ref(fig:fig3)b). Mapping out rural vs Urban areas by populations unsurprisingly shows that the urban areas tend to center around large cities or states with high overall populations like the majority of counties in the Northeast and along the coast of California (Figure \@ref(fig:fig4)a). Overall, rural counties tended to have a higher average total infection prevalence of `r mean(rural)` while urban areas had an average total infection prevalence of `r mean(urban)`  The difference between the urban and rural areas was significant with a p-value of `r ur.t.test[3]`.
 
-```{r fig3, fig.width=7, fig.asp=1, fig.cap="(ref:captionFig3)", message=FALSE}
+(ref:captionfig3) **a)** The counties that adopted mask mandates during the early stages of the pandemic highlighted in green. Counties highlighted in white did not adopt mask mandates. **b)** The average percentage of infection in counties with and without mask mandates (p = `r mask.t.test[3]`).
+
+```{r fig3, fig.width=7, fig.asp=1, fig.cap="(ref:captionfig3)", message=FALSE}
 library('gridExtra')
 grid.arrange(us_mask,bar_mask,nrow =2)
 ```
 
-(ref:captionFig4) **No - or _ in the caption ref.** No space at the end of this line!
+(ref:captionFig4) **a)** The counties highlighted in red are considered urban. Counties highlighted in white are considered rural. **b)** The average percentage of infection in counties considered rural compared to the counties considered urban (p = `r ur.t.test[3]`).
 
 ```{r fig4, fig.width=7, fig.asp=1, fig.cap="(ref:captionFig4)"}
-
 grid.arrange(US_RU_HRSA, Bar_RU_HRSA ,nrow =2)
-
 ```
 
-(ref:captionfig5) **No - or _ in the caption ref.** No space at the end of this line!
+Using previously calculated R0 to derive beta, I calculated the predictive effective reproductive number for each county (Figure \@ref(fig:fig5)). Numerous counties, especially in the state of Georgia, have actually reached an R0 value below 1, meaning that the disease will eventually go extinct in the long term in these areas. The average effective reproductive number across all counties is `r mean(Combined.dataR$curRt)`. However, the effective reproductive number is still relatively high in the northeastern parts of the United States. The addition of the Omicron variant shows an expected increase of the effective reproductive number in almost every county(Figure \@ref(fig:fig6)). When the Omicron variant is included, the average effective reproductive number increases to an average of `r mean(Combined.dataR$omicron_Rt)`. 
+
+(ref:captionfig5) The effective reproductive number for each county as of 12/5/2021. Counties in bright yellow have an R0 below 1 and will therefore see a decline and eventual extinction of the pathogen.
 
 ```{r fig5, fig.width=7, fig.asp=1, fig.cap="(ref:captionfig5)"}
 print(map_rt_cur)
 ```
 
-(ref:captionfig6) **No - or _ in the caption ref.** No space at the end of this line!
+(ref:captionfig6) The predicted effective reproductive number for each county as of 12/5/2021 assuming the Omicron variant is as transmissible as predicted. Counties in bright yellow have an R0 below 1 and will therefore see a decline and eventual extinction of the pathogen. While the northeast continues to have the highest potential for disease spread, other areas not as at risk originally now have more concerning effective reproductive number.
 
 ```{r fig6, fig.width=7, fig.asp=1, fig.cap="(ref:captionfig6)"}
 print(map_rt_omeg)

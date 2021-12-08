@@ -45,7 +45,7 @@ Combined.data$beta = Combined.data$R0.pred*((ep+mu+sig+gam)*(tau+mu))/lambda
 
 Combined.data$curRt = ((Combined.data$POPESTIMATE2020-Combined.data$cases)* Combined.data$Series_Complete_Pop_Pct)/Combined.data$POPESTIMATE2020*((Combined.data$beta*lambda)/((ep+mu+sig+gam)*(tau+mu)))
 
-map_rt_cur = plot_usmap(data = Combined.data, values = "curRt", color = "white",exclude =c("AK","HI"), size = .1) +
+map_rt_cur = plot_usmap(data = Combined.data, values = "curRt", color = "white",exclude =c("AK","HI"), size = NA) +
   scale_fill_continuous(low = "yellow", high = "blue", name = "Rt", limits = c(0,4))
 
 #ggsave(path = "Final_project/Graphs", filename = "US_Cur_Rt_Map.png", width = 49, height = 30) # Save map
@@ -55,5 +55,5 @@ otau = 1e-4 #Transfer of susceptible to quarantine
 
 Combined.data$omnicron_Rt = ((Combined.data$POPESTIMATE2020-Combined.data$cases)* Combined.data$Series_Complete_Pop_Pct)/Combined.data$POPESTIMATE2020*((1.5*Combined.data$beta*lambda)/((ep+mu+sig+gam)*(otau+mu)))
 
-map_rt_omeg = plot_usmap(data = Combined.data, values = "omnicron_Rt", color = "white",exclude =c("AK","HI"), size = .1) +
+map_rt_omeg = plot_usmap(data = Combined.data, values = "omnicron_Rt", color = "white",exclude =c("AK","HI"), size = NA) +
   scale_fill_continuous(low = "yellow", high = "blue", name = "Rt", limits = c(0,4))

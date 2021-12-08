@@ -5,9 +5,9 @@
 \documentclass[
   12pt,
 ]{article}
-\title{County Level Predictors for Covid-19 Prevalence During the Introduction of Omicron}
+\title{County Level Predictors for Covid-19 Prevalence Before and After the Introduction of the Omicron Variant}
 \author{Nathaniel Haulk\textsuperscript{1}}
-\date{2021-12-08 16:03:05}
+\date{2021-12-08 16:17:28}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -42,7 +42,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={County Level Predictors for Covid-19 Prevalence During the Introduction of Omicron},
+  pdftitle={County Level Predictors for Covid-19 Prevalence Before and After the Introduction of the Omicron Variant},
   pdfauthor={Nathaniel Haulk1},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -211,7 +211,7 @@ Mask mandates, social distancing, and vaccination have all been proven to reduce
 
 Spatial heterogeneity, or the uneven distribution of populations across space, is important for predicting disease dynamics in pathogens like Covid-19. Areas with low spatial heterogeneity tend to be better environments for a disease to persist when compared to high spatial heterogeneous environments (\protect\hyperlink{ref-hagenaars_spatial_2004}{Hagenaars et al. 2004}). Populations with higher densities tend to have higher disease spread assuming the disease transmission is not based on frequency of contact (\protect\hyperlink{ref-scott_impact_1988}{Scott 1988}). Density dependent disease like Covid-19 should therefore have a harder time spreading in rural areas with higher heterogeneity and lower population densities. However, with resistance to preventative measures such as masks and vaccines, cases may be higher in rural areas than their urban counterparts (\protect\hyperlink{ref-sun_rural-urban_2021}{Sun and Monnat 2021}).
 
-With changes in population density and spatial spread, the basic reproductive number, \(R_0\), should change as a result. The basic reproductive number represents the number of predicted infections that can result from one infection (\protect\hyperlink{ref-delamater_complexity_2019}{Delamater et al. 2019}). While studies have already looked into how \(R_0\) changes by county, no recent studies have looked at the effective reproductive number on a county level (\protect\hyperlink{ref-ives_estimating_2021}{Ives and Bozzuto 2021}). More importantly, not much is yet known about the new Omicron variant first introduced into the US on December 1, 2021. The Omicron variant is predicted to be more infectious than previous variants of Covid-19 and is predicted to be more resistant to the vaccines we currently have available (\protect\hyperlink{ref-cdc_omicron_2021}{CDC 2021b}). The reproductive number of the Omicron variant is not calculable at such a low prevalence due to the lack of data. However, predictions on how the new variant will spread provide vital information on preventing new infections and reducing overall mortality.
+With changes in population density and spatial spread, the basic reproductive number, \(R_0\), should change as a result. The basic reproductive number represents the number of predicted infections that can result from one infection (\protect\hyperlink{ref-delamater_complexity_2019}{Delamater et al. 2019}). While studies have already looked into how \(R_0\) changes by county, no recent studies have looked at the effective reproductive number on a county level (\protect\hyperlink{ref-ives_estimating_2021}{Ives and Bozzuto 2021}). More importantly, not much is yet known about the new Omicron variant first introduced into the US on December 1, 2021. The Omicron variant is predicted to be more infectious than previous variants of Covid-19 and is predicted to be more resistant to the vaccines that are currently available (\protect\hyperlink{ref-cdc_omicron_2021}{CDC 2021b}). The reproductive number of the Omicron variant is not calculable at such a low prevalence due to the lack of data. However, predictions on how the new variant will spread provide vital information on preventing new infections and reducing overall mortality.
 
 While data is presented on county-level Covid-19 rates, few studies have taken this further to investigate how the infection rates in urban and rural areas compare. With the Omicron variant just recently emerging, no studies have yet to been published examining the predicted rate of spread. In this study, I seek to investigate the total infection prevalence per county. I also compare the prevalence per county in rural and urban areas, as well as those with and without mask mandates. Finally, I seek to use previous predictions of \(R_0\) to calculate \(R_t\) in its current state. Using these current \(R_t\) values, I then infer predicted \(R_t\) values for Omicron for each county to highlight at-risk counties.
 

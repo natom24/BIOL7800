@@ -84,23 +84,11 @@ for(i in 1:nrow(mask_mandate_data)){
 # Records if a county had a mask mandate into Combined.data
 Combined.data = merge(x = Combined.data,mask_mandate_data[,c(3,20)] , by = "fips")
 
-masky = NULL
-maskn = NULL
-
-for(i in 1:nrow(Combined.data)){
-  if(Combined.data$maskyn[i] == 1){
-    masky = Combined.data$Percentinf[i]
-  }
-  
-  else{
-    maskn = Combined.data$Percentinf[i]
-  }
-}
-
 ## Used to test and record infection values based on whether or not a mask mandate was in place
 masky = NULL
 maskn = NULL
 
+# Classifies each as rural or urban
 for(i in 1:nrow(Combined.data)){
   if(Combined.data$maskyn[i] == 1){
     masky = rbind(masky,Combined.data$Percentinf[i])
@@ -114,6 +102,7 @@ for(i in 1:nrow(Combined.data)){
 # Test significance
 mask.t.test = t.test(masky,maskn)
 
+# Record mean and SD of mask data
 maskavg = data.frame(c("Mask Mandate", "No Mask Mandate"),c(mean(masky),mean(maskn)),c(sd(masky),sd(maskn))) # Creates dataframe with the mean and sd for both rural and urban areas
 
 ## Plot mask data
@@ -174,6 +163,7 @@ for(i in 1:nrow(Combined.data)){
   }
 }
 
+# Record mean and SD of rural and urban data
 urb.rur1 = data.frame(c("Rural", "Urban"),c(mean(rural),mean(urban)),c(sd(rural),sd(urban))) # Creates dataframe with the mean and sd for both rural and urban areas
 
 # Runs t.test

@@ -7,7 +7,7 @@
 ]{article}
 \title{County Level Predictors for Covid-19 Prevelance During the Introduction of Omnicron}
 \author{Nathaniel Haulk\textsuperscript{1}}
-\date{2021-12-07 14:29:41}
+\date{2021-12-07 15:20:53}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -218,13 +218,13 @@ While data is presented on county-level Covid-19 rates, few studies have taken t
 \hypertarget{methods}{%
 \section{Methods}\label{methods}}
 
-All code and graphs were written using the programming language R and maps of the United States were modeled using the package USmaps(\protect\hyperlink{ref-lorenzo_usmap_2021}{Lorenzo 2021}, \protect\hyperlink{ref-r_core_team_r_2021}{R Core Team 2021}). For data on Covid-19 cases by county, I used the time series data provided by the New York Times (\protect\hyperlink{ref-new_york_times_coronavirus_2021}{New York Times 2021}). For total population estimates, I used US Census data predictions for 2021 (\protect\hyperlink{ref-united_states_census_bureau_county_2021}{United States Census Bureau 2021a}). Total cases were mapped out as the number of cases in each county divided by the total population to get the total percentage of infections (Figure \ref{fig:fig1}). Rolling averages were mapped out based on reported cases within the last 30 days (Figure \ref{fig:fig2}). Mask mandate data used was collected in July of 2020(\protect\hyperlink{ref-wright_tracking_2020}{Wright et al. 2020}). Data from the early infection was chosen and graphed to show how early responses to Covid-19 have led difference in the total percentage of cases (Figure \ref{fig:fig3}). A t-test was performed to test the significance between the two groups and bar graph was made for visualization (Figure \ref{fig:fig4}). Rural data was graphed using two criteria, based on HRSA classifications and the census Bureaus classifications of urban and rural areas (\protect\hyperlink{ref-hrsa_defining_2021}{HRSA 2021}, \protect\hyperlink{ref-united_states_census_bureau_2010_2021}{United States Census Bureau 2021b}). Both were graphed as a map of the US to show county classification as well as a bar graph to compare the average total case percentage (Figure \ref{fig:fig5}; Figure \ref{fig:fig6}). An ANOVA test was performed on the data classified based on the Census Bureau Data distinction of urban and rural to test for significance. A t-test was performed on the data classified based on the HRSA distinction of urban and rural to test for significance. R Vaccine data was collected from the CDC to calculate the proportion of susceptible individuals (\protect\hyperlink{ref-cdc_covid-19_2021}{CDC 2021b}).
+All code and graphs were written using the programming language R and maps of the United States were modeled using the package USmaps(\protect\hyperlink{ref-lorenzo_usmap_2021}{Lorenzo 2021}, \protect\hyperlink{ref-r_core_team_r_2021}{R Core Team 2021}). For data on Covid-19 cases by county, I used the time series data provided by the New York Times (\protect\hyperlink{ref-new_york_times_coronavirus_2021}{New York Times 2021}). For total population estimates, I used US Census data predictions for 2021 (\protect\hyperlink{ref-united_states_census_bureau_county_2021}{United States Census Bureau 2021a}). Total cases were mapped out as the number of cases in each county divided by the total population to get the total percentage of infections (Figure \ref{fig:fig1}). Rolling averages were mapped out based on reported cases within the last 30 days (Figure \ref{fig:fig2}). Mask mandate data used was collected in July of 2020(\protect\hyperlink{ref-wright_tracking_2020}{Wright et al. 2020}). Data from the early infection was chosen and graphed to show how early responses to Covid-19 have led difference in the total percentage of cases. A t-test was performed to test the significance between the two groups and bar graph was made for visualization (Figure \ref{fig:figS1}). Rural data was graphed using two criteria, based on HRSA classifications and the census Bureaus classifications of urban and rural areas (\protect\hyperlink{ref-hrsa_defining_2021}{HRSA 2021}, \protect\hyperlink{ref-united_states_census_bureau_2010_2021}{United States Census Bureau 2021b}). Both were graphed as a map of the US to show county classification as well as a bar graph to compare the average total case percentage (Figure \ref{fig:figS2} and \ref{fig:figS3}). An ANOVA test was performed on the data classified based on the Census Bureau Data distinction of urban and rural to test for significance. A t-test was performed on the data classified based on the HRSA distinction of urban and rural to test for significance. R Vaccine data was collected from the CDC to calculate the proportion of susceptible individuals (\protect\hyperlink{ref-cdc_covid-19_2021}{CDC 2021b}).
 
-The effective reproductive number (\(R_t\)) was calculated using basic reproductive values(\(R_0\)) for each county predicted in a previous studies (Figure \ref{fig:fig7}) (\protect\hyperlink{ref-ives_estimating_2021}{Ives and Bozzuto 2021}) . Using previous models and calculations of \(R_0\), the formula
+The effective reproductive number (\(R_t\)) was calculated using basic reproductive values(\(R_0\)) for each county predicted in a previous studies (Figure \ref{fig:fig3}) (\protect\hyperlink{ref-ives_estimating_2021}{Ives and Bozzuto 2021}) . Using previous models and calculations of \(R_0\), the formula
 \[R_0 = \frac{\beta*\lambda}{(\gamma+\mu+\epsilon+\sigma)*(\tau+\mu)}\]
 was used to calculate the \(\beta\) value, or the transmission rate, per county (see Table \ref{tab:suptable1} for parameter descriptions) (\protect\hyperlink{ref-ahmed_mathematical_2021}{Ahmed et al. 2021}). Beta values were than used to calculate using the formula
 \[R_t = (1-p)*\frac{S}{N}*\frac{\beta*\lambda}{(\gamma+\mu+\epsilon+\sigma)*(\tau+\mu)}\]
-where S represents individuals Suscpetible to the disease and N represents the total population size in that count. Parameter p represents the proportion of vaccinated individuals per county (\protect\hyperlink{ref-cdc_covid-19_2021}{CDC 2021b}). The effective reproductive number for the Omicron was then calculated using the same formula, with higher overall transmission rates and lower mask mandate usage to reflect the increase in R0 seen when the Delta variant of Covid-19 was first introduced into the United States (\protect\hyperlink{ref-liu_reproductive_2021}{Liu and Rocklöv 2021}).
+where S represents individuals Suscpetible to the disease and N represents the total population size in that count. Parameter p represents the proportion of vaccinated individuals per county (\protect\hyperlink{ref-cdc_covid-19_2021}{CDC 2021b}). The effective reproductive number for the Omicron was then calculated using the same formula, with higher overall transmission rates and lower mask mandate usage to reflect the increase in R0 seen when the Delta variant of Covid-19 was first introduced into the United States(Figure \ref{fig:fig4}) (\protect\hyperlink{ref-liu_reproductive_2021}{Liu and Rocklöv 2021}).
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -258,28 +258,24 @@ Insert figure by code chunk. And cross-ref it back as Figure \ref{fig:fig1}.
 
 
 
-
-
-
-
 \begin{figure}[H]
 
-{\centering \includegraphics{Final-Manuscript_files/figure-latex/fig7-1} 
+{\centering \includegraphics{Final-Manuscript_files/figure-latex/fig3-1} 
 
 }
 
-\caption{\textbf{No - or \_ in the caption ref.} No space at the end of this line!}\label{fig:fig7}
+\caption{\textbf{No - or \_ in the caption ref.} No space at the end of this line!}\label{fig:fig3}
 \end{figure}
 
 
 
 \begin{figure}[H]
 
-{\centering \includegraphics{Final-Manuscript_files/figure-latex/fig8-1} 
+{\centering \includegraphics{Final-Manuscript_files/figure-latex/fig4-1} 
 
 }
 
-\caption{\textbf{No - or \_ in the caption ref.} No space at the end of this line!}\label{fig:fig8}
+\caption{\textbf{No - or \_ in the caption ref.} No space at the end of this line!}\label{fig:fig4}
 \end{figure}
 
 \hypertarget{discussion}{%
@@ -423,5 +419,38 @@ Parameter & Value & Description \\
 p & Varies & Proportion vaccinated \\
 \bottomrule
 \end{longtable}
+
+
+
+\begin{figure}[H]
+
+{\centering \includegraphics{Final-Manuscript_files/figure-latex/figS1-1} 
+
+}
+
+\caption{\textbf{No - or \_ in the caption ref.} No space at the end of this line!}\label{fig:figS1}
+\end{figure}
+
+
+
+\begin{figure}[H]
+
+{\centering \includegraphics{Final-Manuscript_files/figure-latex/figS2-1} 
+
+}
+
+\caption{\textbf{No - or \_ in the caption ref.} No space at the end of this line!}\label{fig:figS2}
+\end{figure}
+
+
+
+\begin{figure}[H]
+
+{\centering \includegraphics{Final-Manuscript_files/figure-latex/figS3-1} 
+
+}
+
+\caption{\textbf{No - or \_ in the caption ref.} No space at the end of this line!}\label{fig:figS3}
+\end{figure}
 
 \end{document}

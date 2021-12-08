@@ -69,7 +69,7 @@ if(knitr::is_latex_output() | knitr::is_html_output()){
 
 \normalsize
 
-**Running headline**: Environment and species richness
+**Running headline**: /Covid-19 and Population Density
 
 **Abstract**: Your awesome abstract here.
 
@@ -106,7 +106,7 @@ source("Code/County_R0.R")
 
 # Results
 
-Counties varied considerably when comparing the total number of cases to the total population of that county (Figure \@ref(fig:fig1)). One standout county is Chattahoochee county in Georgia, having the highest percentage of cases to total population size at almost 60% of individuals having been infected. For the most part, total percentage of cases seems to be relatively evenly distributed throughout states with occasional outliers. Average cases in the last thirty days adjusted for total population size shows that the majority of cases occurs in the Northeastern counties as well as in the midwestern counties (Figure \@ref(fig:fig2)). Average cases tends to be relatively low in southern states, with the majority being near or at 0. 
+Counties varied considerably when comparing the total number of cases to the total population of that county (Figure \@ref(fig:fig1)). One standout county is Chattahoochee county in Georgia, having the highest percentage of cases to total population size at almost 60% of individuals having been infected. For the most part, total percentage of cases seems to be relatively evenly distributed throughout states with occasional outliers. Average cases in the last thirty days adjusted for total population size shows that the majority of cases occurs in the Northeastern counties as well as in the midwestern counties (Figure \@ref(fig:fig2)). Average cases tends to be relatively low in southern states, with the majority being near or at 0. This is due to a relatively large spike in cases that only occured in the South during the months of July through September [@new_york_times_coronavirus_2021]. 
 
 (ref:captionfig1) Total cases divided by the total population per county. Counties with the highest case rate are a darker blue color.
 
@@ -151,15 +151,13 @@ print(map_rt_omeg)
 
 # Discussion
 
-I used current data on Covid-19, effective
+While work has been completed on the past looking into Covid-19 dynamics on a county level, little work has been performed after the introduction of the vaccine and with our current knowledge of the pathogen. Here I show that early mask mandates were an important response to keeping cases low. This result is in line with other studies that have compared mask requirements at a state level and found that states with higher mask use tended to have lower cases [@white_state-level_2020]. Despite the assumption that Covid-19 has a higher transmission rate in more densely populated areas and how Covid-19 has been shown to spread in other countries, The United States seems to have higher case rates in Rural, less populated areas [@rader_crowding_2020]. This is most likely due to the behavior of individuals within these areas as well as resistance to mask mandates and other preventative measures [SOURCE].  It may also be due in part to the fact that more densely populated areas tend to have more intervention from the government in terms of preventative measures.
 
-Focus on these counties
+Across the United States, effective reproductive values were on average below 1. This means that may parts of the country are close to herd immunity [@fine_herd_2011]. Areas of concern are counties assuming that the pathogen does not change is the Northeast, the area with the highest effective reproductive number. Shortages of medical equipment like ventilators has caused issues with hospitals and properly caring for all patients in the past [@sen-crowe_closer_2021]. Based on these values, equipment should be made more readily available to hospitals in the northeast as these populations are the most vulnerable. In addition, individuals in these areas should further encouraged to receive the vaccine to help prevent future cases.
 
-Masks do work.
+If omicron is as infectious as currently predicted, counties across the country are at a much higher risk of contracting Covid-19 [@cdc_omicron_2021]. To help reduce the potential strain Omicron will have on medical centers, mask mandates and other preventative measures should be implemented again, especially in areas like the northeastern part of the United states where the predicted effective reproductive number is high. Preliminary studies suggest that vaccines also provide some protection against the Omicron variant [@zimmer_covid_2021]. Pushing for vaccines in these areas can further help reduce the spread of the disease. While new information is discovered on Omicron everyday and the variant may not be as serious as previously predicted, news is lacking and data is often based on anecdotes or studies with small sample sizes [@callaway_how_2021]. Preventative measures should be taken regardless in case this variant is more severe than predicted and to reduce mortality when possible.
 
-Vaccine data all over the place. 
-
-Potential error
+There are several limitations to this study that require future work. For starters, size of the county is not taken into effect. Some counties, especially in areas like New Mexico and Arizona, are considered Urban due to their sheer size and not necessarily due to their population density. Another limitation is how data is recorded and presented on county level. I currently assume that cases are the best representations of Covid-19 data. However, Covid tests can report false positives and using excess death data may give a better estimate of the actual rates of Covid-19 in each county. Finally, reporting is not consistant accross the United States, with many areas like the South inconsistantly reporting data.
 
 # Conclusion
 

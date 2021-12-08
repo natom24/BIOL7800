@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.12.7)  8 DEC 2021 02:30
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.12.7)  8 DEC 2021 11:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1614,6 +1614,10 @@ LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
 (Font)              scaled to size 6.0pt on input line 214.
 Requested font "libertinust1-mathit-bold" at 6.0pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/libertinust1math/libertinust1-mathit-bold.tfm
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/m/it' will be
+(Font)              scaled to size 12.0pt on input line 221.
+Requested font "[LinLibertine_RI.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 12.0pt
+ -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RI.otf
 [3] [4]
 File: Final-Manuscript_files/figure-latex/fig1-1.pdf Graphic file (type pdf)
 <use Final-Manuscript_files/figure-latex/fig1-1.pdf>
@@ -1635,29 +1639,29 @@ File: Final-Manuscript_files/figure-latex/fig5-1.pdf Graphic file (type pdf)
 <use Final-Manuscript_files/figure-latex/fig5-1.pdf>
 File: Final-Manuscript_files/figure-latex/fig6-1.pdf Graphic file (type pdf)
 <use Final-Manuscript_files/figure-latex/fig6-1.pdf>
-[9] [10] [11] [12] [13]
-Overfull \hbox (2.58334pt too wide) in paragraph at lines 380--382
+[9] [10] [11]
+LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 316.
+Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 14.4pt
+ -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf
+[12] [13]
+Overfull \hbox (2.58334pt too wide) in paragraph at lines 382--384
 []\TU/LinLibertine(0)/m/n/12 Nguyen, M. 2021. Mask Mandates and COVID-19 Related Symptoms in the US. ClinicoEconomics 
  []
 
-[14] [15]
-LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 439.
-Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 14.4pt
- -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf
-[1
+[14] [15] [1
 
 ] (./Final-Manuscript.aux)
 Package rerunfilecheck Info: File `Final-Manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: 20C5B0DB80E396790DF5FD0DAF001D7B;791.
+(rerunfilecheck)             Checksum: 7DDD7ADC286BF23A3DAE89CFCB064A02;802.
  ) 
 Here is how much of TeX's memory you used:
- 31838 strings out of 478256
- 624750 string characters out of 5854460
- 968959 words of memory out of 5000000
- 51951 multiletter control sequences out of 15000+600000
- 438979 words of font info for 138 fonts, out of 8000000 for 9000
+ 31841 strings out of 478256
+ 624869 string characters out of 5854460
+ 968953 words of memory out of 5000000
+ 51953 multiletter control sequences out of 15000+600000
+ 438987 words of font info for 139 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,11n,117p,2182b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 86i,11n,117p,2210b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Final-Manuscript.pdf (16 pages).

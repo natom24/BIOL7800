@@ -4,9 +4,9 @@ This repository contains code and the written manuscript discussing Covid-19 dat
 
 This repository contains the following folders:
 
-- `Data`: this folder is used to hold raw data and output data.
-- `R`: this folder holds all R code.
-- `Figs`: holds figures generated from R code.
+- `Downloaded_Data`: This folder is used to hold raw data.
+- `Code`: this folder holds all R code.
+- `Graphs`: holds figures generated from R code.
 - `Doc`: holds the manuscript.
 
 Some prerequisites:

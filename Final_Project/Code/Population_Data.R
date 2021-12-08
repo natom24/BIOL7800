@@ -34,7 +34,7 @@ Combined.data = merge(x = countypop, Combined.data, by = "fips")
 Combined.data$Percentinf = Combined.data$cases/Combined.data$POPESTIMATE2020
 
 ## Graph percentage of cases vs total pop across the whole US
-us_totinf = plot_usmap(data = Combined.data, values = "Percentinf", color = "white", size = .1) +
+us_totinf = plot_usmap(data = Combined.data, values = "Percentinf", color = "white", size = NA) +
   scale_fill_continuous(low = "white", high = "blue", name = "Proportion I")
 
 #ggsave(path = "Final_project/Graphs", filename = "US_Inf_Map.png", width = 49, height = 30) # Save map
@@ -58,7 +58,7 @@ Combined.data = merge(x = Combined.data, Covid_avg_data, by = "fips")
 
 Combined.data$cases_avg = Combined.data$cases_avg/Combined.data$POPESTIMATE2020
 
-us_curinf =plot_usmap(data = Combined.data, values = "cases_avg", color = "white", size = .1) +
+us_curinf =plot_usmap(data = Combined.data, values = "cases_avg", color = "white", size = NA) +
   scale_fill_continuous(low = "white", high = "dark green", name = "Avg Cases")
 
 #ggsave(path = "Final_project/Graphs", filename = "US_Inf_avg_Map.png", width = 49, height = 30) # Save map
@@ -112,7 +112,7 @@ for(i in 1:nrow(Combined.data)){
 }
 
 # Test significance
-ur.t.test = t.test(masky,maskn)
+mask.t.test = t.test(masky,maskn)
 
 maskavg = data.frame(c("Mask Mandate", "No Mask Mandate"),c(mean(masky),mean(maskn)),c(sd(masky),sd(maskn))) # Creates dataframe with the mean and sd for both rural and urban areas
 

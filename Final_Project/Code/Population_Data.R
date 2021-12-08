@@ -112,7 +112,7 @@ for(i in 1:nrow(Combined.data)){
 }
 
 # Test significance
-print(t.test(masky,maskn))
+ur.t.test = t.test(masky,maskn)
 
 maskavg = data.frame(c("Mask Mandate", "No Mask Mandate"),c(mean(masky),mean(maskn)),c(sd(masky),sd(maskn))) # Creates dataframe with the mean and sd for both rural and urban areas
 
@@ -177,7 +177,7 @@ for(i in 1:nrow(Combined.data)){
 urb.rur1 = data.frame(c("Rural", "Urban"),c(mean(rural),mean(urban)),c(sd(rural),sd(urban))) # Creates dataframe with the mean and sd for both rural and urban areas
 
 # Runs t.test
-print(t.test(urban,rural))
+ur.t.test = t.test(urban,rural)
 
 # Graphs difference
 Bar_RU_HRSA = ggplot(data = urb.rur1, aes(x=urb.rur1[,1], y = urb.rur1[,2]))+
@@ -187,51 +187,3 @@ Bar_RU_HRSA = ggplot(data = urb.rur1, aes(x=urb.rur1[,1], y = urb.rur1[,2]))+
   labs(x="County Classification", y = "Total Infection Prevalence")
   
 #ggsave(path = "Final_project/Graphs", filename = "US_Inf_HRSA_Bar.png") # Save bar graph
-
-#########################################################################v############################################################
-## Comparing infection rates between rural and non-rural counties assuming Census.gov Standard as Well as Graph New Map
-######################################################################################################################################
-
-rural = NULL
-urbana = NULL
-urbanc = NULL
-
-cur_rural = NULL
-cur_urbana = NULL
-cur_urbanc = NULL
-
-# Runs through data to record which values are rural and urban
-for(i in 1:nrow(Combined.data)){
-  if(Combined.data$POPESTIMATE2020[i] >=50000){
-    urbana = rbind(urbana,Combined.data$Percentinf[i])
-    cur_urbana = rbind(cur_urbana,Combined.data$cases_avg[i])
-    Combined.data$rural_urban_Cen[i] = 1
-  }
-  else if(Combined.data$POPESTIMATE2020[i]<50000 && Combined.data$POPESTIMATE2020[i]>=2500){
-    urbanc = rbind(urbanc,Combined.data$Percentinf[i])
-    cur_urbanc = rbind(cur_urbanc,Combined.data$cases_avg[i])
-    Combined.data$rural_urban_Cen[i] = .5
-  }
-  else{ 
-    rural = rbind(rural,Combined.data$Percentinf[i])
-    cur_rural = rbind(cur_rural,Combined.data$cases_avg[i])
-    Combined.data$rural_urban_Cen[i] = 0
-  }
-}
-
-urb.rur = data.frame(c("Rural", "Urban Area", "Urban Cluster"),c(mean(rural),mean(urbana),mean(urbanc)),c(sd(rural),sd(urbana),sd(urbanc))) # Creates dataframe with the mean and sd for both rural and urban areas
-
-Bar_RU_Cen = ggplot(data = urb.rur, aes(x=urb.rur[,1], y = urb.rur[,2]))+
-  geom_bar(stat="identity",fill =c("brown","white","#DC968D"))+
-  geom_errorbar(aes(ymin=urb.rur[,2]-urb.rur[,3], ymax=urb.rur[,2]+urb.rur[,3]), width=.2,
-                position=position_dodge(.9))+
-  labs(x="County Classification", y = "Total Infection Prevalence")
-
-#ggsave(path = "Final_project/Graphs", filename = "US_Inf_Cen_Bar.png") # Save map
-
-## Plot the County classifications under the Census Bureau classification
-US_RU_Cen = plot_usmap(data = Combined.data, values = "rural_urban_Cen", color = "black", size = .1) +
-  scale_fill_continuous(low = "white", high = "brown", name = "Proportion I") +
-  theme(legend.position = "none")
-
-#ggsave(path = "Final_project/Graphs", filename = "US_RU_Cen_Map.png", width = 49, height = 30) # Save map

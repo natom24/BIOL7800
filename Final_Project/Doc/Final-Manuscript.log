@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.12.7)  7 DEC 2021 15:22
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.12.7)  7 DEC 2021 21:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1628,40 +1628,38 @@ File: Final-Manuscript_files/figure-latex/fig3-1.pdf Graphic file (type pdf)
 [6]
 File: Final-Manuscript_files/figure-latex/fig4-1.pdf Graphic file (type pdf)
 <use Final-Manuscript_files/figure-latex/fig4-1.pdf>
-[7] [8] [9]
-Overfull \hbox (2.58334pt too wide) in paragraph at lines 353--355
+[7]
+File: Final-Manuscript_files/figure-latex/fig5-1.pdf Graphic file (type pdf)
+<use Final-Manuscript_files/figure-latex/fig5-1.pdf>
+[8]
+File: Final-Manuscript_files/figure-latex/fig6-1.pdf Graphic file (type pdf)
+<use Final-Manuscript_files/figure-latex/fig6-1.pdf>
+[9] [10] [11]
+Overfull \hbox (2.58334pt too wide) in paragraph at lines 370--372
 []\TU/LinLibertine(0)/m/n/12 Nguyen, M. 2021. Mask Mandates and COVID-19 Related Symptoms in the US. ClinicoEconomics 
  []
 
-[10] [11]
+[12] [13]
 LaTeX Font Info:    Font shape `TU/LinLibertine(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 400.
+(Font)              scaled to size 14.4pt on input line 417.
 Requested font "[LinLibertine_RB.otf]/OT:script=latn;language=dflt;+tnum;+onum;mapping=tex-text;" at 14.4pt
  -> c:/Users/natom/AppData/Roaming/TinyTeX/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf
-File: Final-Manuscript_files/figure-latex/figS1-1.pdf Graphic file (type pdf)
-<use Final-Manuscript_files/figure-latex/figS1-1.pdf>
 [1
 
-]
-File: Final-Manuscript_files/figure-latex/figS2-1.pdf Graphic file (type pdf)
-<use Final-Manuscript_files/figure-latex/figS2-1.pdf>
-[2]
-File: Final-Manuscript_files/figure-latex/figS3-1.pdf Graphic file (type pdf)
-<use Final-Manuscript_files/figure-latex/figS3-1.pdf>
-[3] [4] (./Final-Manuscript.aux)
+] (./Final-Manuscript.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Final-Manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: 3680A1571CE9F558AD20B76AE56E3DCF;790.
+(rerunfilecheck)             Checksum: 20C5B0DB80E396790DF5FD0DAF001D7B;791.
  ) 
 Here is how much of TeX's memory you used:
- 31850 strings out of 478256
- 625301 string characters out of 5854460
- 967972 words of memory out of 5000000
- 51962 multiletter control sequences out of 15000+600000
+ 31838 strings out of 478256
+ 624770 string characters out of 5854460
+ 967772 words of memory out of 5000000
+ 51951 multiletter control sequences out of 15000+600000
  438979 words of font info for 138 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,11n,117p,2222b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 86i,11n,117p,2191b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Final-Manuscript.pdf (15 pages).
+Output written on Final-Manuscript.pdf (14 pages).

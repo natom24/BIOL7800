@@ -13,15 +13,15 @@ County_data$fips = str_c(County_data$STATE, "", County_data$COUNTY) # Crates fip
 County_data = County_data[,c(22,21)] # Rearranges data into more readable format
 
 
-Combined.data = merge(x = Covid_data, County_data, by = "fips")
-Combined.data[,1]= str_pad(Combined.data[,1], 5 ,side = "left","0") # Adds zeros to the left of any fips values less than 5 numbers wide
+Combined.dataR = merge(x = Covid_data, County_data, by = "fips")
+Combined.dataR[,1]= str_pad(Combined.dataR[,1], 5 ,side = "left","0") # Adds zeros to the left of any fips values less than 5 numbers wide
 
 
 R0_data = read.csv("Downloaded_Data/42003_2020_1609_MOESM4_ESM.csv")
 R0_data[,3]= str_pad(R0_data[,3], 5 ,side = "left","0") # Adds zeros to the left of any fips values less than 5 numbers wide
 R0_data = R0_data[,c(3,13)]
 
-Combined.data = merge(x = Combined.data, R0_data, by = "fips")
+Combined.dataR = merge(x = Combined.dataR, R0_data, by = "fips")
 
 # Imports CDC Vaccine Data
 vac.data = read.csv("Downloaded_Data/COVID-19_Vaccinations_in_the_United_States_County.csv")
@@ -29,7 +29,7 @@ vac.data = vac.data[vac.data$Date == "12/06/2021",] # Pulls Vaccine data from De
 vac.data = vac.data[,c(2,6)]
 names(vac.data)[1] = "fips"
 vac.data[,2] = vac.data[,2]/100
-Combined.data = merge(x = Combined.data, vac.data, by = "fips")
+Combined.dataR = merge(x = Combined.dataR, vac.data, by = "fips")
 
 ## Parameter values from Ahmed et al 2021
 lambda = .0025 # Births into system
@@ -41,11 +41,11 @@ tau = 2e-4 #Transfer of susceptible to quarantine
 
 
 
-Combined.data$beta = Combined.data$R0.pred*((ep+mu+sig+gam)*(tau+mu))/lambda
+Combined.dataR$beta = Combined.dataR$R0.pred*((ep+mu+sig+gam)*(tau+mu))/lambda
 
-Combined.data$curRt = ((Combined.data$POPESTIMATE2020-Combined.data$cases)* Combined.data$Series_Complete_Pop_Pct)/Combined.data$POPESTIMATE2020*((Combined.data$beta*lambda)/((ep+mu+sig+gam)*(tau+mu)))
+Combined.dataR$curRt = ((Combined.dataR$POPESTIMATE2020-Combined.dataR$cases)* Combined.dataR$Series_Complete_Pop_Pct)/Combined.dataR$POPESTIMATE2020*((Combined.dataR$beta*lambda)/((ep+mu+sig+gam)*(tau+mu)))
 
-map_rt_cur = plot_usmap(data = Combined.data, values = "curRt", color = "white",exclude =c("AK","HI"), size = NA) +
+map_rt_cur = plot_usmap(data = Combined.dataR, values = "curRt", color = "white",exclude =c("AK","HI"), size = NA) +
   scale_fill_continuous(low = "yellow", high = "blue", name = "Rt", limits = c(0,4))
 
 #ggsave(path = "Final_project/Graphs", filename = "US_Cur_Rt_Map.png", width = 49, height = 30) # Save map
@@ -53,7 +53,7 @@ map_rt_cur = plot_usmap(data = Combined.data, values = "curRt", color = "white",
 ## Parameter values from Ahmed et al 2021
 otau = 1e-4 #Transfer of susceptible to quarantine
 
-Combined.data$omnicron_Rt = ((Combined.data$POPESTIMATE2020-Combined.data$cases)* Combined.data$Series_Complete_Pop_Pct)/Combined.data$POPESTIMATE2020*((1.5*Combined.data$beta*lambda)/((ep+mu+sig+gam)*(otau+mu)))
+Combined.dataR$omicron_Rt = ((Combined.dataR$POPESTIMATE2020-Combined.dataR$cases)* Combined.dataR$Series_Complete_Pop_Pct)/Combined.dataR$POPESTIMATE2020*((1.5*Combined.dataR$beta*lambda)/((ep+mu+sig+gam)*(otau+mu)))
 
-map_rt_omeg = plot_usmap(data = Combined.data, values = "omnicron_Rt", color = "white",exclude =c("AK","HI"), size = NA) +
+map_rt_omeg = plot_usmap(data = Combined.dataR, values = "omicron_Rt", color = "white",exclude =c("AK","HI"), size = NA) +
   scale_fill_continuous(low = "yellow", high = "blue", name = "Rt", limits = c(0,4))
